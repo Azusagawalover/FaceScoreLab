@@ -1,0 +1,170 @@
+{
+  "locked_at_utc": "2026-11-15T14:41:22.709425+00:00",
+  "registered_protocol_sha256": "515373062c35fb87548ecfef06c07a0b6e03459b6c0123ca3955e4c1ea72779d",
+  "profiles": {
+    "male": {
+      "file": "beauty_male.onnx",
+      "sha256": "1e06c1981dbf37f6040dacd0766dbdf4e8d9bfa09cb404372b632346fd5145c7",
+      "bytes": 4018418,
+      "model_version": "scut-mobilenetv3-small-r4-head-male-seed20261115-v1",
+      "profile": "male",
+      "profile_selection": "manual_by_user_not_inferred_from_photo",
+      "counts": {
+        "train": 2035,
+        "validation": 190,
+        "test": 525
+      },
+      "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+      "input": {
+        "name": "input",
+        "shape": [
+          "batch",
+          3,
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "dtype": "float32",
+        "color": "RGB"
+      },
+      "output": {
+        "name": "score",
+        "shape": [
+          "batch",
+          1
+        ],
+        "scale": [
+          1,
+          5
+        ]
+      },
+      "normalization": {
+        "mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "std": [
+          0.229,
+          0.224,
+          0.225
+        ]
+      },
+      "preprocessing": "Unchanged general R4 faceCrop v1, RGB224, ImageNet normalization; no new alignment or resizing algorithm.",
+      "native_scale": [
+        1,
+        5
+      ],
+      "display_scale": [
+        1,
+        10
+      ],
+      "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+      "base_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+      "checkpoint_sha256": "74c02ec0dfce07a47cc554714264bbb16dfdc972155248542862d0e6be3c17c2",
+      "training": "Two-group head-only adaptation of frozen selected R4 backbone; AdamW lr1e-4, batch64, validation raw MAE early stopping.",
+      "validation": {
+        "n": 190,
+        "mae": 0.22882074243143985,
+        "rmse": 0.3003339847635479,
+        "pearson": 0.8875928227564853,
+        "spearman": 0.8268413224005391
+      },
+      "general_validation": {
+        "n": 190,
+        "mae": 0.22911018258646915,
+        "rmse": 0.30041543799489423,
+        "pearson": 0.886337725852777,
+        "spearman": 0.8231475551064066
+      },
+      "validation_recommendation": "experimental_profile_gate_not_met_keep_general_default",
+      "deployment_decision_made_before_test": true,
+      "historical_benchmark_evaluated": false,
+      "new_unseen_test_evaluated": false,
+      "limitation": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established."
+    },
+    "female": {
+      "file": "beauty_female.onnx",
+      "sha256": "d0ed17ac6c61bea2b53e2d9e81aed3853bcda3a7f0e9f1f1fda612aa0b9c1844",
+      "bytes": 4018418,
+      "model_version": "scut-mobilenetv3-small-r4-head-female-seed20261115-v1",
+      "profile": "female",
+      "profile_selection": "manual_by_user_not_inferred_from_photo",
+      "counts": {
+        "train": 1925,
+        "validation": 250,
+        "test": 575
+      },
+      "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+      "input": {
+        "name": "input",
+        "shape": [
+          "batch",
+          3,
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "dtype": "float32",
+        "color": "RGB"
+      },
+      "output": {
+        "name": "score",
+        "shape": [
+          "batch",
+          1
+        ],
+        "scale": [
+          1,
+          5
+        ]
+      },
+      "normalization": {
+        "mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "std": [
+          0.229,
+          0.224,
+          0.225
+        ]
+      },
+      "preprocessing": "Unchanged general R4 faceCrop v1, RGB224, ImageNet normalization; no new alignment or resizing algorithm.",
+      "native_scale": [
+        1,
+        5
+      ],
+      "display_scale": [
+        1,
+        10
+      ],
+      "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+      "base_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+      "checkpoint_sha256": "4c3365116d753768e867d66a4b7746168e0853efb1d373f0fb60d57ff295b4c3",
+      "training": "Two-group head-only adaptation of frozen selected R4 backbone; AdamW lr1e-4, batch64, validation raw MAE early stopping.",
+      "validation": {
+        "n": 250,
+        "mae": 0.30032588958740236,
+        "rmse": 0.39283984423310775,
+        "pearson": 0.8337075837334973,
+        "spearman": 0.8330343656901835
+      },
+      "general_validation": {
+        "n": 250,
+        "mae": 0.3033864893913269,
+        "rmse": 0.39666299309397,
+        "pearson": 0.8296940148694457,
+        "spearman": 0.8284970159752093
+      },
+      "validation_recommendation": "experimental_profile_gate_not_met_keep_general_default",
+      "deployment_decision_made_before_test": true,
+      "historical_benchmark_evaluated": false,
+      "new_unseen_test_evaluated": false,
+      "limitation": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established."
+    }
+  },
+  "selection_complete_before_test_targets_parsed": true,
+  "test_selection_prohibited": true
+}

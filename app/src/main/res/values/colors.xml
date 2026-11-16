@@ -1,0 +1,29 @@
+﻿<resources>
+    <!-- 页面与卡片底色。 -->
+    <color name="surface">#F0EEE8</color>
+    <color name="surface_top">#FBF9F5</color>
+    <color name="card">#FFFFFF</color>
+    <color name="card_tint">#F7F5F0</color>
+
+    <color name="ink">#1C2431</color>
+    <color name="muted">#625F59</color>
+
+    <!-- 主色：深海藏蓝，用于按钮与选中态 -->
+    <color name="accent">#16324F</color>
+    <color name="accent_deep">#0C1F33</color>
+    <color name="accent_soft">#E7EDF4</color>
+
+    <!-- 点缀色：珊瑚橙，只用于强调与图形，不承担正文 -->
+    <color name="coral">#D9562F</color>
+    <color name="coral_deep">#C24A28</color>
+    <color name="coral_soft">#FBE9E2</color>
+
+    <color name="teal">#14766B</color>
+    <color name="teal_soft">#E3F1EE</color>
+
+    <color name="warn">#A9661B</color>
+    <color name="warn_soft">#FAF0E1</color>
+
+    <color name="border">#E4DED3</color>
+    <color name="disabled">#6F6B64</color>
+</resources>

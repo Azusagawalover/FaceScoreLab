@@ -1,0 +1,210 @@
+{
+  "model_version": "scut-mobilenetv3-small-aug-r4-seed2026-v2",
+  "architecture": "MobileNetV3 Small + LayerNorm + 128-unit regression head",
+  "initialization": "torchvision ImageNet1K V1 only; never initialized with an SCUT-trained beauty checkpoint",
+  "training": "ImageNet only; freeze features 0-8; MSE head then features 9-12; two fixed mild training views; validation LR schedule; frozen BatchNorm statistics",
+  "selected_stage": "late_finetune",
+  "selected_epoch": 27,
+  "seed": 2026,
+  "counts": {
+    "train": 3960,
+    "validation": 440,
+    "test": 1100
+  },
+  "target_scale": [
+    1,
+    5
+  ],
+  "selection_metric": "validation MAE on raw predictions",
+  "validation_mae": 0.2713126296346838,
+  "test_raw": {
+    "n": 1100,
+    "mae": 0.27616984163160146,
+    "rmse": 0.3631751804811043,
+    "pearson": 0.8477707772756373,
+    "spearman": 0.8467272672229599
+  },
+  "test_clipped": {
+    "n": 1100,
+    "mae": 0.27602635829627986,
+    "rmse": 0.3627882240366097,
+    "pearson": 0.8480783073696386,
+    "spearman": 0.8467272672229599
+  },
+  "constant_train_mean_baseline": {
+    "n": 1100,
+    "mae": 0.5665135083415291,
+    "rmse": 0.6827141659651831,
+    "pearson": null
+  },
+  "groups": {
+    "AF": {
+      "n": 404,
+      "mae": 0.3044376037571973,
+      "rmse": 0.39775689828737937,
+      "pearson": 0.8179379903487288
+    },
+    "AM": {
+      "n": 394,
+      "mae": 0.24991029955901714,
+      "rmse": 0.33598962251909614,
+      "pearson": 0.8510413662107771
+    },
+    "CF": {
+      "n": 171,
+      "mae": 0.28095142288694325,
+      "rmse": 0.35414956548230664,
+      "pearson": 0.8789692959117472
+    },
+    "CM": {
+      "n": 131,
+      "mae": 0.26173040104529693,
+      "rmse": 0.34111790621259613,
+      "pearson": 0.8463198568876088
+    }
+  },
+  "limitation": "Previously observed official SCUT fold1 benchmark; image-level identity overlap cannot be ruled out; subjective rater labels; not real-phone end-to-end accuracy.",
+  "duration_seconds": 459.7820000000065,
+  "imagenet_checkpoint_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+  "imagenet_checkpoint_url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+  "late_block_weight_change_l2": 1.398276543517536,
+  "conversion_parity": [
+    {
+      "name": "AF1004.jpg",
+      "pytorch": 3.6048169136047363,
+      "onnx": 3.604818820953369,
+      "absolute_difference": 1.9073486328125e-06
+    },
+    {
+      "name": "AF101.jpg",
+      "pytorch": 2.5257344245910645,
+      "onnx": 2.5257351398468018,
+      "absolute_difference": 7.152557373046875e-07
+    },
+    {
+      "name": "AF1014.jpg",
+      "pytorch": 3.9694418907165527,
+      "onnx": 3.9694466590881348,
+      "absolute_difference": 4.76837158203125e-06
+    },
+    {
+      "name": "AF1024.jpg",
+      "pytorch": 3.5234789848327637,
+      "onnx": 3.5234830379486084,
+      "absolute_difference": 4.0531158447265625e-06
+    },
+    {
+      "name": "AF1026.jpg",
+      "pytorch": 2.934663772583008,
+      "onnx": 2.9346625804901123,
+      "absolute_difference": 1.1920928955078125e-06
+    },
+    {
+      "name": "AF1027.jpg",
+      "pytorch": 4.029082298278809,
+      "onnx": 4.029085159301758,
+      "absolute_difference": 2.86102294921875e-06
+    },
+    {
+      "name": "AF1041.jpg",
+      "pytorch": 2.1456644535064697,
+      "onnx": 2.1456642150878906,
+      "absolute_difference": 2.384185791015625e-07
+    },
+    {
+      "name": "AF1044.jpg",
+      "pytorch": 2.3527872562408447,
+      "onnx": 2.3527867794036865,
+      "absolute_difference": 4.76837158203125e-07
+    },
+    {
+      "name": "AF1061.jpg",
+      "pytorch": 2.9486019611358643,
+      "onnx": 2.9486021995544434,
+      "absolute_difference": 2.384185791015625e-07
+    },
+    {
+      "name": "AF1067.jpg",
+      "pytorch": 2.517153024673462,
+      "onnx": 2.517153024673462,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "AF1081.jpg",
+      "pytorch": 3.485159397125244,
+      "onnx": 3.485161066055298,
+      "absolute_difference": 1.6689300537109375e-06
+    },
+    {
+      "name": "AF1083.jpg",
+      "pytorch": 4.051949501037598,
+      "onnx": 4.051953315734863,
+      "absolute_difference": 3.814697265625e-06
+    },
+    {
+      "name": "AF1091.jpg",
+      "pytorch": 2.737046241760254,
+      "onnx": 2.737046957015991,
+      "absolute_difference": 7.152557373046875e-07
+    },
+    {
+      "name": "AF1107.jpg",
+      "pytorch": 3.3382625579833984,
+      "onnx": 3.3382604122161865,
+      "absolute_difference": 2.1457672119140625e-06
+    },
+    {
+      "name": "AF1110.jpg",
+      "pytorch": 3.6977357864379883,
+      "onnx": 3.697732448577881,
+      "absolute_difference": 3.337860107421875e-06
+    },
+    {
+      "name": "AF1118.jpg",
+      "pytorch": 2.243852138519287,
+      "onnx": 2.2438533306121826,
+      "absolute_difference": 1.1920928955078125e-06
+    },
+    {
+      "name": "AF1129.jpg",
+      "pytorch": 3.777655839920044,
+      "onnx": 3.7776572704315186,
+      "absolute_difference": 1.430511474609375e-06
+    },
+    {
+      "name": "AF1133.jpg",
+      "pytorch": 3.167116641998291,
+      "onnx": 3.167120933532715,
+      "absolute_difference": 4.291534423828125e-06
+    },
+    {
+      "name": "AF1143.jpg",
+      "pytorch": 2.126504421234131,
+      "onnx": 2.1265101432800293,
+      "absolute_difference": 5.7220458984375e-06
+    },
+    {
+      "name": "AF1153.jpg",
+      "pytorch": 2.8374204635620117,
+      "onnx": 2.8374223709106445,
+      "absolute_difference": 1.9073486328125e-06
+    }
+  ],
+  "model_sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4",
+  "checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+  "historical_test_status": "previously_observed_official_fold1_historical_benchmark",
+  "observation_date": "2026-11-13",
+  "duration_scope": "This run includes feature/cache preparation and training-validation; reused raw-data preparation and later export/test are separate.",
+  "original_deployed_model_comparison": {
+    "raw_mae": 0.29849841031161223,
+    "candidate_raw_mae": 0.27616984163160146,
+    "absolute_error_reduction": 0.02232857099300038,
+    "paired_image_ci95": [
+      0.014870543196912419,
+      0.02966028073976013
+    ]
+  },
+  "selection_rule": "Lowest validation MAE within winner recipe; ties use ascending seed. Never reselect using test.",
+  "confirmation_id": "a96e43dac066b358703c535d9dff0a47fdae7937f39e48f6be1866cf0c8fe6f5",
+  "locked_evaluation_id": "2f6d55ddf6f57235ea9882d1b1808e90866bcf2e7c2f1d59ab283adc2cf5b321"
+}

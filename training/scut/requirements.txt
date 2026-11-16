@@ -1,0 +1,9 @@
+torch==2.6.0
+torchvision==0.21.0
+numpy==2.5.4
+pillow==13.0.0
+pyarrow==26.0.1
+mediapipe==0.10.32
+matplotlib==3.11.2
+onnx==1.17.0
+onnxruntime==1.20.1

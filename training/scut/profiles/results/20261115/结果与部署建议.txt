@@ -1,0 +1,82 @@
+SCUT 男性/女性数据组评分模型：实际训练结果与部署建议
+完成日期：2026-11-15
+
+一、实际完成
+两套独立评分模型已经训练、导出ONNX并在固定历史测试图上与通用模型同图比较。
+它们是用户手动选择的回归档位，不从照片判断性别或其他身份。训练分组仅按SCUT文件名前缀：AM/CM与AF/CF。
+没有下载新数据/新骨干、没有付费计算，没有改动原通用模型或原实验。
+
+输出文件：
+  beauty_male.onnx，4,018,418字节
+  SHA256 1e06c1981dbf37f6040dacd0766dbdf4e8d9bfa09cb404372b632346fd5145c7
+  beauty_female.onnx，4,018,418字节
+  SHA256 d0ed17ac6c61bea2b53e2d9e81aed3853bcda3a7f0e9f1f1fda612aa0b9c1844
+每组metadata位于male_metadata.json/female_metadata.json；综合清单为score_profiles.json。
+
+二、训练来源与数据边界
+从已由验证集选定的通用R4 seed2026 checkpoint开始，冻结全部骨干及BN统计，仅训练原回归头。
+warmstart checkpoint SHA256：e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b。
+原R4权重梯度仅使用原train；原validation用于选择权重。保存记录的test_evaluated=false，训练入口只读取开发清单。
+历史test后来已经被旧实验评测，不能称为本轮全新盲测；当前没有额外测试标签梯度学习。
+
+组别       train     validation     historical test
+male       2035      190            525
+female     1925      250            575
+合计       3960      440            1100
+
+两组同一预登记配置：seed20261115，AdamW lr1e-4、weight_decay0.01、batch64，最多60轮、验证MAE早停10轮、最小改善1e-5。
+只从真正训练过的epoch中按组验证MAE选best，不把未训练通用权重当成新模型。
+male实际11轮、best第1轮；female实际24轮、best第14轮。
+通过实际检查点张量复核：两组240个骨干state张量与通用权重完全一致，6个回归头张量均有变化，模型SHA互不相同。
+head参数相对通用L2变化约male0.1343、female0.6921；完整model/optimizer/RNG保存在各组best.pt和last.pt。
+
+开发特征复用已有R4缓存；复用前核对前段权重、开发清单、缓存文件字节、4400张实际输入内容SHA及顺序。
+只提取开发集固定576维特征；没有提前提取测试特征。两训练串行CPU4线程，登记总墙钟上限60分钟。
+因为已复用审计后的缓存，实际训练/导出/锁定历史测试总墙钟约19.5秒；不是从头训练两个完整骨干。
+
+三、验证集选择与预先冻结的部署建议
+预登记可选档位改善门槛：相对通用模型验证原始MAE至少下降0.005。
+
+组别       通用验证MAE       专用验证MAE       改善
+male       0.22911018        0.22882074       +0.00028944
+female     0.30338649        0.30032589       +0.00306060
+
+两组都有小幅验证改善，但均未达到0.005门槛。测试前已经冻结建议：
+experimental_profile_gate_not_met_keep_general_default。
+因此建议保留通用模型为默认；两套模型只作为用户手动选择的实验档位，不宣传“专用模型更准”。
+后面的历史测试没有参与重新选权重、调参数或修改这一建议。
+
+四、固定历史测试结果（原始1至5分量表）
+
+male：
+  通用模型MAE 0.25285970，专用模型MAE 0.25119462。
+  通用RMSE 0.33727655，专用RMSE 0.33635683。
+  通用Pearson 0.85173079，专用Pearson 0.85418945。
+  配对MAE改善 +0.00166507；5000次图片配对bootstrap 95%区间[-0.00117823, 0.00448184]。
+
+female：
+  通用模型MAE 0.29745302，专用模型MAE 0.29753764。
+  通用RMSE 0.38530442，专用RMSE 0.38740874。
+  通用Pearson 0.84011772，专用Pearson 0.83884426。
+  配对MAE改善 -0.00008462；5000次图片配对bootstrap 95%区间[-0.00387853, 0.00357659]。
+
+male历史点估计略好，female基本持平略差；两个区间都包含0，没有支持稳定精度提升的证据。
+Pearson是相关系数，不是百分比准确率；MAE不能直接和界面1至10分数字混用。
+这不是三种子方法复验，没有按身份聚类；区间仅条件于固定模型和当前图片，不覆盖训练随机性和真实手机域偏移。
+
+五、导出与接入契约
+沿用原通用R4：input为float32 [N,3,224,224]，RGB、NCHW、ImageNet mean/std；score为[N,1]原始1至5。
+预处理版本：landmark478-crop145-up006-rgb-imagenet-bilinear224-v1。
+没有改裁剪、缩放或归一化算法，App可以沿用通用评分输入，只按手动profile切换ONNX权重与模型版本。
+各组20张validation图的PyTorch/ONNX差异均小于1e-4，具体数值见各组export_parity.json。
+最终历史评测直接使用导出的ONNX与通用ONNX，在相同图片上运行；见historical_test_predictions.csv。
+本目录没有做Android设备推理验证；该部分由主代理接入后另行验收。
+
+六、证据位置
+registered_protocol.json：训练之前固定的配置、计数、代码/输入/权重哈希和预算。
+frozen_candidates.json：两个候选导出后、读取测试目标前锁定的权重和验证建议。
+male/、female/：best.pt、last.pt、训练日志、验证逐图预测/选择、导出对照、历史测试逐图与指标。
+historical_comparison.json：两组同图对照与区间。
+verification_audit.json：骨干未变、头部实际改变、完整checkpoint、模型SHA和已保存逐图指标的复算核验。
+completion.json：完成时间、19.5秒总墙钟、两个串行作业、0付费/0下载。
+以上证据保留原样；新实验应建立新目录/新预登记，不覆盖这一次结果或因测试结果追加搜索。

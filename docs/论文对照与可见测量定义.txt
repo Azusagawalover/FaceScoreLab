@@ -1,0 +1,40 @@
+文献依据与可见测量定义
+
+范围
+研究页将文献问题与当前照片测量分开：照片只输出二维几何、单帧可见动作和图像质量；不输出疾病、认知健康或性取向结论。以下几何和亮度算子是项目定义，未声称完整复现论文分类器，也没有引入无来源的常模Z分数或固定临床置信度。
+课程任务书要求三庭五眼、对称性、眉眼距、鼻部和唇部等几何特征，扩展研究同时需讨论方法限制与伦理边界。
+
+参考文献
+[P1] Rathgeb C, Ibsen M, Hartmann D, Hradetzky S, Olafsdottir B. Testing the Performance of Face Recognition for People with Down Syndrome. FG, 2024.
+https://arxiv.org/abs/2405.11240
+公开PDF5页。p1摘要及§I研究人脸识别公平性；p2 §III/IV说明图像采集和识别实验，并非照片疾病诊断模型。相关内容用于讨论数据代表性、姿态和图像质量。
+
+[P2] Rondina M, Vinci F, Vetro A, De Martin J C. Facial Analysis Systems and Down Syndrome. ECML PKDD 2023论文集章节；arXiv版本2025。
+https://arxiv.org/abs/2502.06341
+公开PDF16页。p1摘要讨论商业系统偏差；p4 §3.2及p5讨论数据与裁剪、姿态、照明、表情；p14 §7讨论同意、质量和欠代表群体。不以清晰度或动作系数推导临床置信度。
+
+[P3] Leuner J. A Replication Study: Machine Learning Models Are Capable of Predicting Sexual Orientation From Facial Images. 2018学位论文，arXiv版本2019。
+https://arxiv.org/abs/1902.10739
+公开PDF69页。p3摘要讨论亮度、颜色、模糊图像与呈现条件的影响，指出形态与修饰、呈现、生活方式的各自贡献仍未确定。本文用于说明拍摄条件与模型敏感性的局限，不据此合成个人属性指数。任务书两处编号不一致时，以与题名匹配的1902.10739为准。
+
+[P4] Goodfellow I J et al. Challenges in Representation Learning: A report on three machine learning contests. 2013.
+https://arxiv.org/abs/1307.0414
+公开PDF8页。p3 §3及p4说明FER2013的35,887张48×48灰度图和七类表情学习任务。项目未训练FER2013模型；眼口开合测量不是该分类器的复现。
+
+[P5] Google. MediaPipe Face Landmarker.
+https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker
+技术输出包括478个面部网格点及52项expression blendshape系数。系数描述可见形态与动作，不是校准后的情绪或疾病概率；单张图片不构成眼动或微表情时序。
+
+测量定义
+G1 内眦间距/双眼中心距：内眼角二维距离除以双眼中心距。使用内外眼角中点近似眼中心时明确标注近似，不称为真实瞳距；分母过小时返回不可计算，显示无量纲比例。
+G2 鼻梁投影长宽比：明确使用鼻梁上端、鼻尖和鼻翼点，计算二维投影长度/宽度。该值随姿态与透视变化，不代表三维鼻梁或中面部扁平度。
+G3 左右几何差异：记录眼线校正、中轴和镜像配对，用眼间距或脸宽归一化差异。若使用0～100经验映射，标为项目经验几何相似度，不称诊断概率或微表情对称度。
+A1 眼裂高宽比：单一垂直点对距离除以眼角距离，不等同于所有EAR论文的六点双垂直公式。
+A2 嘴部开合比：上下内唇间距除以左右嘴角间距，仅描述可见形态。
+A3 单帧动作：MediaPipe mouthSmileLeft/right、jawOpen等系数及左右绝对差、分布，保留模型来源；不外推为时序或健康结论。
+Q1 脸区亮度：在明确脸框内按统一RGB/亮度公式计算均值、标准差及鼻区水平绝对梯度，说明8位亮度量纲或归一化范围。梯度受光照、阴影和化妆影响，不反推三维形状。
+Q2 清晰度与扰动：统一脸裁剪上的实际Laplacian响应平方均值或方差，按真实算子命名。图像扰动实际修改像素并重跑同一CNN/预处理，报告分数差和失败项数，不称识别错误率。3×3均值核不称高斯核；宽高各15%的遮挡面积为2.25%。
+
+展示与证据
+当前照片按几何、单帧动作和图像质量分组，提供定义、输入质量及不可计算原因。论文提供研究背景与问题，工程算子单独记录。项目不使用文献题名为无来源的个人判别公式背书。
+页码对应上述公开版本；源码不附论文全文。历史来源索引见visible_measurement_references.json，独立精度缺失时保留未评测状态。

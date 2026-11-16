@@ -1,0 +1,53 @@
+{
+  "model_version": "celeba-gender-mobilenetv3-small-seed42-v1",
+  "task": "CelebA Male binary classification",
+  "label_mapping": "+1 -> 1 (male), -1 -> 0 (female)",
+  "architecture": "MobileNetV3 Small, torchvision ImageNet1K V1 initialization",
+  "seed": 42,
+  "epochs_run": 6,
+  "development": {
+    "train_detected": 19883,
+    "train_male": 8300,
+    "train_female": 11583,
+    "validation_detected": 1988
+  },
+  "calibration": {
+    "method": "Platt scaling (1-D logistic regression)",
+    "a": 0.9155694626197927,
+    "b": -0.31950489935860277,
+    "fit_split": "validation",
+    "formula": "p = sigmoid(a*logit + b)"
+  },
+  "threshold": 0.6,
+  "threshold_fit_split": "validation",
+  "validation_metrics": {
+    "raw": {
+      "brier": 0.011783890042631329,
+      "log_loss": 0.043910234668933804,
+      "balanced_accuracy": 0.9864869721473495
+    },
+    "calibrated": {
+      "brier": 0.011350123276602087,
+      "log_loss": 0.042858940034006955,
+      "balanced_accuracy": 0.9864869721473495
+    }
+  },
+  "heldout": {
+    "threshold": 0.6,
+    "tp": 769,
+    "tn": 1174,
+    "fp": 21,
+    "fn": 28,
+    "support": 1992,
+    "sensitivity_male": 0.9648682559598495,
+    "specificity_female": 0.9824267782426779,
+    "precision": 0.9734177215189873,
+    "f1": 0.9691241335853813,
+    "accuracy": 0.9754016064257028,
+    "balanced_accuracy": 0.9736475171012637,
+    "brier": 0.01852729109447553,
+    "log_loss": 0.06955980377393953,
+    "auroc": 0.996678968726868
+  },
+  "scope": "CelebA official image-level partitions; identity table not obtained, so identity independence is not claimed. Official test split evaluated once with frozen threshold and calibration; not used for model or threshold selection. Male is a binary annotation and does not represent non-binary gender. Not an end-to-end real-phone evaluation."
+}

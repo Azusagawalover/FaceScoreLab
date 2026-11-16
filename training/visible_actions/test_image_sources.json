@@ -1,0 +1,20 @@
+[
+  {
+    "name": "eyeglasses.jpg",
+    "url": "https://raw.githubusercontent.com/yakhyo/face-attribute/main/assets/test_images/eyeglasses.jpg",
+    "git_blob_sha1": "48e8ebcecba644379f2b694fe8818ae08d4837fb",
+    "sha256": "b360de8d82646c07bf65f9853f84a6eabbe58d897bdfea9d9514129e36d10011"
+  },
+  {
+    "name": "eyeglasses_man.jpg",
+    "url": "https://raw.githubusercontent.com/yakhyo/face-attribute/main/assets/test_images/eyeglasses_man.jpg",
+    "git_blob_sha1": "6d756778224555000287c5349fa288c8bb6e34e5",
+    "sha256": "cd0ad5f6dc40f9fa2238887683429e19d26b216881c3f77212eaaef3a7671738"
+  },
+  {
+    "name": "closed_eyes.jpg",
+    "url": "https://raw.githubusercontent.com/yakhyo/face-attribute/main/assets/test_images/closed_eyes.jpg",
+    "git_blob_sha1": "6c21611f5e5c62d2775f451bfe4815f27ac83a2b",
+    "sha256": "197c30f111e02372f8b01592f87dfa7d1da51dfdfabc13afd06d03e84ea7f568"
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "completed_at_utc": "2026-11-15T14:41:28.402122+00:00",
+  "profiles": {
+    "male": {
+      "profile": "male",
+      "test_scope": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+      "backend": "ONNX Runtime CPU, exactly exported models",
+      "counts": {
+        "train": 2035,
+        "validation": 190,
+        "test": 525
+      },
+      "general": {
+        "n": 525,
+        "mae": 0.2528596963108317,
+        "rmse": 0.33727655238919185,
+        "pearson": 0.8517307851925293,
+        "spearman": 0.829650590371018
+      },
+      "specialized": {
+        "n": 525,
+        "mae": 0.2511946217673165,
+        "rmse": 0.336356825717129,
+        "pearson": 0.8541894524075588,
+        "spearman": 0.8320634202336645
+      },
+      "paired_mae_improvement": 0.0016650745435151596,
+      "paired_image_bootstrap_95ci": [
+        -0.0011782269918946765,
+        0.004481843596326917
+      ],
+      "bootstrap_resamples": 5000,
+      "bootstrap_seed": 20261115,
+      "validation_recommendation_frozen": "experimental_profile_gate_not_met_keep_general_default",
+      "test_used_to_select_weights_or_deployment_gate": false,
+      "limitation": "Images, not identities, are bootstrap units; fixed-model interval does not cover training random variation or real-phone domain shift."
+    },
+    "female": {
+      "profile": "female",
+      "test_scope": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+      "backend": "ONNX Runtime CPU, exactly exported models",
+      "counts": {
+        "train": 1925,
+        "validation": 250,
+        "test": 575
+      },
+      "general": {
+        "n": 575,
+        "mae": 0.2974530177940435,
+        "rmse": 0.38530441871933996,
+        "pearson": 0.8401177201038386,
+        "spearman": 0.8497944584954474
+      },
+      "specialized": {
+        "n": 575,
+        "mae": 0.29753763966734514,
+        "rmse": 0.3874087392711619,
+        "pearson": 0.8388442571768762,
+        "spearman": 0.8498897761935159
+      },
+      "paired_mae_improvement": -8.462187330162955e-05,
+      "paired_image_bootstrap_95ci": [
+        -0.0038785264476636815,
+        0.0035765886539804166
+      ],
+      "bootstrap_resamples": 5000,
+      "bootstrap_seed": 20261115,
+      "validation_recommendation_frozen": "experimental_profile_gate_not_met_keep_general_default",
+      "test_used_to_select_weights_or_deployment_gate": false,
+      "limitation": "Images, not identities, are bootstrap units; fixed-model interval does not cover training random variation or real-phone domain shift."
+    }
+  },
+  "total_wall_seconds": 19.437000000001717,
+  "general_default_remains_available": true,
+  "test_did_not_change_validation_recommendations": true
+}

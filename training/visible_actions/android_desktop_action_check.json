@@ -1,0 +1,132 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "image": "smile",
+      "python": {
+        "mouthSmileLeft": 0.875221848487854,
+        "mouthSmileRight": 0.797012448310852,
+        "smileCoefficient": 0.836117148399353,
+        "jawOpenCoefficient": 0.08009760081768036
+      },
+      "android": {
+        "model": "mediapipe-visible-mouth-actions-v1",
+        "available": true,
+        "faceCount": 1,
+        "selectedFaceIndex": 0,
+        "valueType": "visible_action_coefficient_not_probability",
+        "smileThreshold": 0.5,
+        "mouthOpenThreshold": 0.25,
+        "mouthSmileLeft": 0.8752203583717346,
+        "mouthSmileRight": 0.7970200777053833,
+        "smileCoefficient": 0.836120218038559,
+        "smileDetected": true,
+        "jawOpenCoefficient": 0.08012109249830246,
+        "mouthOpenDetected": false,
+        "method": "Mean of mouthSmileLeft and mouthSmileRight; jawOpen is separate. Fixed demonstration thresholds, not calibrated probabilities or emotion labels."
+      },
+      "absolute_differences": {
+        "mouthSmileLeft": 1.4901161193847656e-06,
+        "mouthSmileRight": 7.62939453125e-06,
+        "smileCoefficient": 3.069639205932617e-06,
+        "jawOpenCoefficient": 2.349168062210083e-05
+      }
+    },
+    {
+      "image": "glasses",
+      "python": {
+        "mouthSmileLeft": 0.0027832770720124245,
+        "mouthSmileRight": 0.0015644661616533995,
+        "smileCoefficient": 0.002173871616832912,
+        "jawOpenCoefficient": 0.0016500658821314573
+      },
+      "android": {
+        "model": "mediapipe-visible-mouth-actions-v1",
+        "available": true,
+        "faceCount": 1,
+        "selectedFaceIndex": 0,
+        "valueType": "visible_action_coefficient_not_probability",
+        "smileThreshold": 0.5,
+        "mouthOpenThreshold": 0.25,
+        "mouthSmileLeft": 0.002781902439892292,
+        "mouthSmileRight": 0.0015626894310116768,
+        "smileCoefficient": 0.0021722959354519844,
+        "smileDetected": false,
+        "jawOpenCoefficient": 0.0016508507542312145,
+        "mouthOpenDetected": false,
+        "method": "Mean of mouthSmileLeft and mouthSmileRight; jawOpen is separate. Fixed demonstration thresholds, not calibrated probabilities or emotion labels."
+      },
+      "absolute_differences": {
+        "mouthSmileLeft": 1.3746321201324463e-06,
+        "mouthSmileRight": 1.7767306417226791e-06,
+        "smileCoefficient": 1.5756813809275627e-06,
+        "jawOpenCoefficient": 7.848720997571945e-07
+      }
+    },
+    {
+      "image": "mouth-open",
+      "python": {
+        "mouthSmileLeft": 0.01753789559006691,
+        "mouthSmileRight": 0.007344644516706467,
+        "smileCoefficient": 0.012441270053386688,
+        "jawOpenCoefficient": 0.5303562879562378
+      },
+      "android": {
+        "model": "mediapipe-visible-mouth-actions-v1",
+        "available": true,
+        "faceCount": 1,
+        "selectedFaceIndex": 0,
+        "valueType": "visible_action_coefficient_not_probability",
+        "smileThreshold": 0.5,
+        "mouthOpenThreshold": 0.25,
+        "mouthSmileLeft": 0.017526067793369293,
+        "mouthSmileRight": 0.007340352050960064,
+        "smileCoefficient": 0.012433209922164679,
+        "smileDetected": false,
+        "jawOpenCoefficient": 0.5303553342819214,
+        "mouthOpenDetected": true,
+        "method": "Mean of mouthSmileLeft and mouthSmileRight; jawOpen is separate. Fixed demonstration thresholds, not calibrated probabilities or emotion labels."
+      },
+      "absolute_differences": {
+        "mouthSmileLeft": 1.1827796697616577e-05,
+        "mouthSmileRight": 4.2924657464027405e-06,
+        "smileCoefficient": 8.060131222009659e-06,
+        "jawOpenCoefficient": 9.5367431640625e-07
+      }
+    },
+    {
+      "image": "closed-eyes",
+      "python": {
+        "mouthSmileLeft": 0.004851032514125109,
+        "mouthSmileRight": 0.002972348127514124,
+        "smileCoefficient": 0.003911690320819616,
+        "jawOpenCoefficient": 0.00027315234183333814
+      },
+      "android": {
+        "model": "mediapipe-visible-mouth-actions-v1",
+        "available": true,
+        "faceCount": 1,
+        "selectedFaceIndex": 0,
+        "valueType": "visible_action_coefficient_not_probability",
+        "smileThreshold": 0.5,
+        "mouthOpenThreshold": 0.25,
+        "mouthSmileLeft": 0.004844832234084606,
+        "mouthSmileRight": 0.002968801883980632,
+        "smileCoefficient": 0.003906817059032619,
+        "smileDetected": false,
+        "jawOpenCoefficient": 0.00027355446945875883,
+        "mouthOpenDetected": false,
+        "method": "Mean of mouthSmileLeft and mouthSmileRight; jawOpen is separate. Fixed demonstration thresholds, not calibrated probabilities or emotion labels."
+      },
+      "absolute_differences": {
+        "mouthSmileLeft": 6.200280040502548e-06,
+        "mouthSmileRight": 3.5462435334920883e-06,
+        "smileCoefficient": 4.873261786997318e-06,
+        "jawOpenCoefficient": 4.021276254206896e-07
+      }
+    }
+  ],
+  "model_sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+  "absolute_tolerance": 0.01,
+  "note": "Exact-input implementation check across runtimes; not population accuracy or emotion inference."
+}

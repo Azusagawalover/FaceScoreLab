@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "completed_at_utc": "2026-11-15T14:41:28.447032+00:00",
+  "total_wall_seconds": 19.48400000000038,
+  "training_jobs": 2,
+  "parallel_jobs": 1,
+  "paid_compute": 0,
+  "new_downloads": false,
+  "test_evaluated_after_lock": true,
+  "profile_files": {
+    "male": "beauty_male.onnx",
+    "female": "beauty_female.onnx"
+  }
+}

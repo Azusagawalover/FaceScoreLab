@@ -1,0 +1,14 @@
+{
+  "version_name": "3.4.1",
+  "version_code": 8,
+  "contracts": 66,
+  "skips": 0,
+  "isolated_package": "com.example.facescorelab.verifyv341",
+  "physical_phone_tested": false,
+  "source_correctness_tests_passed": true,
+  "manual_profiles": 3,
+  "general_recommended_default": true,
+  "specialized_models_experimental": true,
+  "user_app_upgraded": false,
+  "production_code_and_assets_match_tested_apk": true
+}

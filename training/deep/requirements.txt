@@ -1,0 +1,12 @@
+torch==2.6.0
+torchvision==0.21.0
+timm==1.0.15
+onnx==1.17.0
+onnxruntime==1.20.1
+numpy>=1.26
+pillow>=10
+facenet-pytorch==2.5.3
+ftfy>=6.2
+regex
+einops>=0.6
+requests>=2.31

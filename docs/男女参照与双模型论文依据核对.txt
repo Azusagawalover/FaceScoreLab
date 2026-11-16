@@ -1,0 +1,30 @@
+分组参照与实验评分模型的方法依据
+
+设计关系
+课程任务书要求分组说明评分依据及其数据来源，不将数据统计解释为客观美丑标准。分组参照统计、按组训练回归模型和从照片给出标签参考属于不同功能，需分别说明。
+本项目通用CNN之外的男性/女性回归头适配是项目实验扩展，不称为SCUT或FPEM论文规定的双CNN部署方案。
+
+SCUT-FBP5500
+Liang L, Lin L, Jin L, Xie D, Li M. SCUT-FBP5500: A Diverse Benchmark Dataset for Multi-Paradigm Facial Beauty Prediction. 2018.
+https://arxiv.org/abs/1801.06345
+公开PDF共6页。p2 §II定义AF/AM/CF/CM四组；p3 §III分析评分分布；p4 §III-D/Figure6展示AF、AM几何均值及主成分。p4 §IV-A为18维几何特征与LR/GR/SVR，四子集10折交叉验证；p5 Table IV/V分别为组内与全体几何结果。
+p5 §V、Tables VII/VIII的AlexNet/ResNet18/ResNeXt50基准以全5500图5折或3300/2200划分说明，未描述男女双CNN部署。Table III/Figure5的评分者性别相关性，不能误读为被评分图像专用模型。
+项目按AM+CM、AF+CF合并两组属于自定义实验划分。MEBeauty 15维岭回归也不同于该文18维浅层回归协议。
+
+FPEM
+Li H, Ren X, Yu H, et al. FPEM: Face Prior Enhanced Facial Attractiveness Prediction for Live Videos with Face Retouching. ICCV, 2025.
+https://openaccess.thecvf.com/content/ICCV2025/html/Li_FPEM_Face_Prior_Enhanced_Facial_Attractiveness_Prediction_for_Live_Videos_ICCV_2025_paper.html
+正式公开PDF共11页。p7 §5.1分别按SCUT 60%/40%、MEBeauty 80%/20%、LiveBeauty 90%/10%划分；§5.2说明训练设置；Table2比较各数据集总体指标，未定义男性/女性两套部署权重。本文依据正式ICCV版本，不依赖未取得的任务书预印本全文。
+
+MEBeauty
+Lebedeva I, Guo Y, Ying F. MEBeauty: a multi-ethnic facial beauty dataset in-the-wild. Neural Computing and Applications, 2022.
+DOI：10.1007/s00521-021-06535-0
+作者仓库：https://github.com/fbplab/MEBeauty-database
+公开README说明男女样本、generic平均分与personal分数，并允许选择训练主干和评分清单；README未确认男女双CNN部署。本项目未取得期刊全文，不据此断言全文绝无性别分组实验。
+
+当前工程
+score_model.json保存一套MEBeauty 15维岭回归系数，附general/male/female几何参照统计，训练参照样本分别为1712/803/909。
+CNN有通用R4、男性实验与女性实验三套实际权重。分组模型冻结通用骨干，仅适配回归头；男性验证改善0.000289、女性0.003061，均低于0.005门槛，通用保持推荐默认。详细协议与结果见training/scut/profiles/results/20261115。
+评分档位由用户选择。可选CelebA Male二元标签模型仅提供参考，只有用户确认才改变档位；它不能确定个人真实身份。历史记录保留保存时的模型版本与档位。
+
+引用页码对应上述公开版本。源码不附论文全文，原始历史来源索引保留于相关JSON，不将失效本机路径作为复现入口。

@@ -1,0 +1,80 @@
+{
+  "format": "visible-attributes-mnv3-v1",
+  "lock_id": "bd0c5fc869da3ddadef19bc2d2ff72534f2037a6c4b763b7a9b83db06ea1a047",
+  "onnx_sha256": "533beea26c0b0b0d83ae6f094aa37d72357fe22492ddfdb23ac3b1f591f7be95",
+  "prepared_manifest_sha256": "3facc7f0a08cea0d12080e1113570db36566c9ebbe2d0382b6cce9e4e8221914",
+  "thresholds": [
+    0.425,
+    0.85,
+    0.475
+  ],
+  "thresholds_retuned_on_test": false,
+  "heldout": {
+    "macro_f1": 0.8973800330943188,
+    "macro_f1_label_count": 3,
+    "per_label": [
+      {
+        "known_available": 1992,
+        "positive_support": 969,
+        "negative_support": 1023,
+        "tp": 869,
+        "fp": 122,
+        "fn": 100,
+        "tn": 901,
+        "precision": 0.8768920282542886,
+        "recall": 0.8968008255933952,
+        "f1": 0.886734693877551,
+        "balanced_accuracy": 0.8887718692971864,
+        "label": "Smiling",
+        "threshold": 0.425,
+        "unknown_labels": 0,
+        "known_total": 2000,
+        "coverage_of_known": 0.996
+      },
+      {
+        "known_available": 1992,
+        "positive_support": 134,
+        "negative_support": 1858,
+        "tp": 119,
+        "fp": 6,
+        "fn": 15,
+        "tn": 1852,
+        "precision": 0.952,
+        "recall": 0.8880597014925373,
+        "f1": 0.918918918918919,
+        "balanced_accuracy": 0.9424152113490674,
+        "label": "Eyeglasses",
+        "threshold": 0.85,
+        "unknown_labels": 0,
+        "known_total": 2000,
+        "coverage_of_known": 0.996
+      },
+      {
+        "known_available": 1992,
+        "positive_support": 953,
+        "negative_support": 1039,
+        "tp": 820,
+        "fp": 77,
+        "fn": 133,
+        "tn": 962,
+        "precision": 0.9141583054626533,
+        "recall": 0.8604407135362014,
+        "f1": 0.8864864864864865,
+        "balanced_accuracy": 0.8931654963253673,
+        "label": "Mouth_Slightly_Open",
+        "threshold": 0.475,
+        "unknown_labels": 0,
+        "known_total": 2000,
+        "coverage_of_known": 0.996
+      }
+    ],
+    "coverage": {
+      "images_total": 2000,
+      "images_with_output": 1992,
+      "face_detection_output_rate": 0.996
+    },
+    "score_type": "uncalibrated independent sigmoid scores; not calibrated probabilities"
+  },
+  "wall_seconds": 8.25,
+  "scope": "Three visible CelebA labels on official image-level held-out samples; not real-phone accuracy or identity-disjoint evaluation"
+}

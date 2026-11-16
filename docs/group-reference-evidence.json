@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-15",
+  "scut_pdf_pages": [
+    4,
+    5
+  ],
+  "fpem_pdf_pages": [
+    7
+  ],
+  "teacher_requirement": "Group-specific scoring explanations; two CNNs not explicitly required",
+  "mebeauty_full_text": "Not obtained; publisher request timed out. Official README inspected only.",
+  "files": [
+    {
+      "path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\1801.06345.pdf",
+      "bytes": 874357,
+      "sha256": "b14e89340dd82fcdc2b330c41c3628f388c382bce2c851ce4372ec89a0442ac8"
+    },
+    {
+      "path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\fpem-iccv2025.pdf",
+      "bytes": 4892087,
+      "sha256": "33e0233b824a79a90c28b95ee4490f339f81cd09130013f9ce74039ebd0bfb74"
+    },
+    {
+      "path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\mebeauty-readme.txt",
+      "bytes": 3728,
+      "sha256": "ea26839cbccec7b1c4e3714d53b8002dd77f502bd4e207cce4951d8fdbd1a4f3"
+    },
+    {
+      "path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\mebeauty-repo-root.json",
+      "bytes": 17482,
+      "sha256": "be17e59e3f9b733cb19496cbccd7de422c232a3da174ca8827fca8fd09c723af"
+    },
+    {
+      "path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\男女参照与双模型论文依据核对.txt",
+      "bytes": 5853,
+      "sha256": "5603ce3d573ce9d9872ee21a85379762d7c4a13e490a08d91cf6fbc474f74e0f"
+    }
+  ]
+}

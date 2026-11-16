@@ -1,0 +1,47 @@
+[
+  {
+    "image": "girl.jpg",
+    "detected": true,
+    "smileLeft": 0.8723100423812866,
+    "smileRight": 0.7920527458190918,
+    "smile": 0.8321813941001892,
+    "jawOpen": 0.0835970863699913,
+    "faces": 1
+  },
+  {
+    "image": "guy.jpg",
+    "detected": true,
+    "smileLeft": 0.7754120826721191,
+    "smileRight": 0.7502686977386475,
+    "smile": 0.7628403902053833,
+    "jawOpen": 0.025454416871070862,
+    "faces": 1
+  },
+  {
+    "image": "closed_eyes.jpg",
+    "detected": true,
+    "smileLeft": 0.00493994727730751,
+    "smileRight": 0.003116896841675043,
+    "smile": 0.004028422059491277,
+    "jawOpen": 0.00026308230007998645,
+    "faces": 1
+  },
+  {
+    "image": "eyeglasses.jpg",
+    "detected": true,
+    "smileLeft": 0.6357547044754028,
+    "smileRight": 0.4402693212032318,
+    "smile": 0.5380120128393173,
+    "jawOpen": 0.005849963054060936,
+    "faces": 1
+  },
+  {
+    "image": "eyeglasses_man.jpg",
+    "detected": true,
+    "smileLeft": 0.0027320317458361387,
+    "smileRight": 0.0015652887523174286,
+    "smile": 0.0021486602490767837,
+    "jawOpen": 0.0018181559862568974,
+    "faces": 1
+  }
+]

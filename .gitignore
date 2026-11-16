@@ -1,0 +1,14 @@
+.gradle/
+.idea/
+local.properties
+**/build/
+*.iml
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.hprof
+*.apk
+*.aab
+training/data/
+training/runs/

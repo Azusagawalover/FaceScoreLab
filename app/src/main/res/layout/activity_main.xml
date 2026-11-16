@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@drawable/bg_app_gradient">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingHorizontal="20dp" android:paddingTop="14dp" android:paddingBottom="12dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="FaceScore Lab" android:textColor="@color/ink" android:textSize="23sp" android:textStyle="bold" />
+        <TextView android:id="@+id/header_subtitle" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="3dp" android:text="面部分析与评分实验室" android:textColor="@color/muted" android:textSize="12sp" />
+    </LinearLayout>
+    <ScrollView android:id="@+id/content_scroll" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1" android:fillViewport="true"
+        android:clipToPadding="false" android:paddingHorizontal="16dp" android:paddingBottom="16dp">
+        <LinearLayout android:id="@+id/page_content" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical" />
+    </ScrollView>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="64dp"
+        android:orientation="horizontal" android:background="@drawable/bg_tabbar" android:elevation="0dp" android:paddingHorizontal="12dp">
+        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tab_home" android:layout_width="0dp" android:layout_height="wrap_content" android:minHeight="64dp"
+            app:drawableTopCompat="@drawable/ic_tab_home" android:drawablePadding="4dp" android:paddingTop="8dp" android:paddingBottom="8dp"
+            android:layout_weight="1" android:gravity="center" android:text="首页" android:textSize="11sp"
+            android:textColor="@color/accent" android:textStyle="bold" android:clickable="true" android:focusable="true"
+            android:background="?attr/selectableItemBackground" />
+        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tab_history" android:layout_width="0dp" android:layout_height="wrap_content" android:minHeight="64dp"
+            app:drawableTopCompat="@drawable/ic_tab_history" android:drawablePadding="4dp" android:paddingTop="8dp" android:paddingBottom="8dp"
+            android:layout_weight="1" android:gravity="center" android:text="历史" android:textSize="11sp"
+            android:textColor="@color/muted" android:clickable="true" android:focusable="true"
+            android:background="?attr/selectableItemBackground" />
+        <androidx.appcompat.widget.AppCompatTextView android:id="@+id/tab_research" android:layout_width="0dp" android:layout_height="wrap_content" android:minHeight="64dp"
+            app:drawableTopCompat="@drawable/ic_tab_research" android:drawablePadding="4dp" android:paddingTop="8dp" android:paddingBottom="8dp"
+            android:layout_weight="1" android:gravity="center" android:text="研究" android:textSize="11sp"
+            android:textColor="@color/muted" android:clickable="true" android:focusable="true"
+            android:background="?attr/selectableItemBackground" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,299 @@
+{
+  "format": "facescore-results-v1",
+  "kind": "final",
+  "created_utc": "2026-11-13T12:15:36.609488+00:00",
+  "target_scale": [
+    1,
+    5
+  ],
+  "selection_metric": "validation_raw_mae_1_to_5",
+  "test_evaluation_triggered": false,
+  "limitations": [
+    "SCUT official fold 1 is a previously observed historical benchmark, not a new blind test.",
+    "These reports do not establish attribute F1, segmentation mIoU, or real-phone accuracy.",
+    "Pearson and Spearman are correlations, not accuracy percentages."
+  ],
+  "confirmation_id": "a96e43dac066b358703c535d9dff0a47fdae7937f39e48f6be1866cf0c8fe6f5",
+  "lock_id": "2f6d55ddf6f57235ea9882d1b1808e90866bcf2e7c2f1d59ab283adc2cf5b321",
+  "baseline_recipe": "R0",
+  "winner_recipe": "R4",
+  "seeds": [
+    17,
+    42,
+    2026
+  ],
+  "historical_test_status": "previously_observed_official_fold1_historical_benchmark",
+  "test_results_preexisted": true,
+  "validation_gate": {
+    "mean_validation_mae_improvement": 0.012315433404662401,
+    "minimum_mean_improvement": 0.005,
+    "validation_gate_passed": true
+  },
+  "method_comparison": {
+    "per_seed_results": [
+      {
+        "recipe": "R0",
+        "seed": 17,
+        "n": 1100,
+        "mae": 0.3068489276389313,
+        "rmse": 0.39978411097971983,
+        "pearson": 0.817113156035429,
+        "spearman": 0.8148549598972259,
+        "validation_mae": 0.2909873902797699,
+        "evaluation_json": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R0-seed17\\evaluation.json",
+        "checkpoint_sha256": "1cb00dacac62118915d3564a5463507509487895d60369bc2a70d76879217017",
+        "onnx_sha256": "4cd1c799555de48a113b6252cea5ab39d84852f14259305e7b05e73c28c83eaf"
+      },
+      {
+        "recipe": "R0",
+        "seed": 42,
+        "n": 1100,
+        "mae": 0.30109384792030336,
+        "rmse": 0.39601227999921684,
+        "pearson": 0.8222702874091664,
+        "spearman": 0.8284190123124003,
+        "validation_mae": 0.2870820324529301,
+        "evaluation_json": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R0-seed42\\evaluation.json",
+        "checkpoint_sha256": "cbb637c113db27d1281bd1a1cb30e1a7dba0250895bbce9638b96fb1de3916d1",
+        "onnx_sha256": "1bbf243ced420159d6d190377ed861244de260c5ad2ec64cab1bb2d8c7dff259"
+      },
+      {
+        "recipe": "R0",
+        "seed": 2026,
+        "n": 1100,
+        "mae": 0.2932741910699324,
+        "rmse": 0.3813204259977337,
+        "pearson": 0.8320382498980171,
+        "spearman": 0.829380900141478,
+        "validation_mae": 0.2855876963246952,
+        "evaluation_json": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R0-seed2026\\evaluation.json",
+        "checkpoint_sha256": "94d27fb8cac4819951e5a597bfefe508c5b45596a86435a977090ce10f619ab1",
+        "onnx_sha256": "4ac14597de6609b072ffc78165dc297113da65a50ee616b636434abf8b473c99"
+      },
+      {
+        "recipe": "R4",
+        "seed": 17,
+        "n": 1100,
+        "mae": 0.2915483788765855,
+        "rmse": 0.38316414797973486,
+        "pearson": 0.8312734499629219,
+        "spearman": 0.8274515750177602,
+        "validation_mae": 0.282312826405872,
+        "evaluation_json": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R4-seed17\\evaluation.json",
+        "checkpoint_sha256": "17781e2f4b18f444d2e6bcf96317ed6738b6c95a48e9498be12f7f02ca8ab146",
+        "onnx_sha256": "a64f9d3d12d22208479a40b3449ae79fdb0f9213c5e2b17257301523ad6af58d"
+      },
+      {
+        "recipe": "R4",
+        "seed": 42,
+        "n": 1100,
+        "mae": 0.28737432716571465,
+        "rmse": 0.37980299275202634,
+        "pearson": 0.8364012933234203,
+        "spearman": 0.8393321558054913,
+        "validation_mae": 0.2730853628028523,
+        "evaluation_json": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R4-seed42\\evaluation.json",
+        "checkpoint_sha256": "99961fe43b652fbf122545c95572ff1dbab8adc02d6981700f5ed68063c51cc9",
+        "onnx_sha256": "dcb761f9440d983be50dd0cb8dfea62a7ced333c54a9ddd47275038a7858ec68"
+      },
+      {
+        "recipe": "R4",
+        "seed": 2026,
+        "n": 1100,
+        "mae": 0.27616984163160146,
+        "rmse": 0.3631751804811043,
+        "pearson": 0.8477707772756373,
+        "spearman": 0.8467272672229599,
+        "validation_mae": 0.2713126296346838,
+        "evaluation_json": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R4-seed2026\\evaluation.json",
+        "checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+        "onnx_sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4"
+      }
+    ],
+    "three_seed_summary": {
+      "R0": {
+        "mae": {
+          "n": 3,
+          "mean": 0.30040565554305565,
+          "sample_standard_deviation": 0.006813484775832791,
+          "minimum": 0.2932741910699324,
+          "maximum": 0.3068489276389313
+        },
+        "rmse": {
+          "n": 3,
+          "mean": 0.39237227232555677,
+          "sample_standard_deviation": 0.009755211821212965,
+          "minimum": 0.3813204259977337,
+          "maximum": 0.39978411097971983
+        },
+        "pearson": {
+          "n": 3,
+          "mean": 0.8238072311142042,
+          "sample_standard_deviation": 0.0075803201559108135,
+          "minimum": 0.817113156035429,
+          "maximum": 0.8320382498980171
+        },
+        "spearman": {
+          "n": 3,
+          "mean": 0.8242182907837016,
+          "sample_standard_deviation": 0.008123132463289754,
+          "minimum": 0.8148549598972259,
+          "maximum": 0.829380900141478
+        }
+      },
+      "R4": {
+        "mae": {
+          "n": 3,
+          "mean": 0.28503084922463384,
+          "sample_standard_deviation": 0.00795259508551074,
+          "minimum": 0.27616984163160146,
+          "maximum": 0.2915483788765855
+        },
+        "rmse": {
+          "n": 3,
+          "mean": 0.3753807737376218,
+          "sample_standard_deviation": 0.01070311735775366,
+          "minimum": 0.3631751804811043,
+          "maximum": 0.38316414797973486
+        },
+        "pearson": {
+          "n": 3,
+          "mean": 0.8384818401873265,
+          "sample_standard_deviation": 0.008443160460123889,
+          "minimum": 0.8312734499629219,
+          "maximum": 0.8477707772756373
+        },
+        "spearman": {
+          "n": 3,
+          "mean": 0.837836999348737,
+          "sample_standard_deviation": 0.00972443813904067,
+          "minimum": 0.8274515750177602,
+          "maximum": 0.8467272672229599
+        }
+      }
+    },
+    "paired_image_bootstrap_of_mean_seed_errors": {
+      "n_images": 1100,
+      "repetitions": 5000,
+      "rng_seed": 20261113,
+      "delta_definition": "baseline MAE minus candidate MAE; positive favors candidate",
+      "mae_improvement": 0.015374806318421795,
+      "ci95_lower": 0.011529435415940486,
+      "ci95_upper": 0.019221309162487668,
+      "interval_excludes_zero_in_improvement_direction": true,
+      "bootstrap_unit": "image",
+      "method": "paired percentile bootstrap",
+      "limitation": "Conditional on these fitted models; does not capture training-seed uncertainty or unresolved same-person image correlation.",
+      "seed_aggregation": "Mean of per-model absolute errors across the three fixed seeds; not an ensemble prediction"
+    },
+    "paired_seed_mae_improvements": [
+      {
+        "seed": 17,
+        "mae_improvement": 0.015300548762345767
+      },
+      {
+        "seed": 42,
+        "mae_improvement": 0.01371952075458871
+      },
+      {
+        "seed": 2026,
+        "mae_improvement": 0.017104349438330946
+      }
+    ]
+  },
+  "deployment_comparison": {
+    "status": "paired_historical_fixed_model_comparison",
+    "candidate": {
+      "recipe": "R4",
+      "seed": 2026,
+      "run": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\runs\\R4-seed2026",
+      "fingerprint": "3525941feb8e122152e37c3eeb796bbad67525f1a38b7ac6c63e97d3646a3f2f",
+      "validation_mae": 0.2713126296346838,
+      "best_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b"
+    },
+    "candidate_test_raw": {
+      "n": 1100,
+      "mae": 0.27616984163160146,
+      "rmse": 0.3631751804811043,
+      "pearson": 0.8477707772756373,
+      "spearman": 0.8467272672229599
+    },
+    "historical_recorded_test_raw": {
+      "n": 1100,
+      "mae": 0.29849841031161223,
+      "rmse": 0.39260558537152174,
+      "pearson": 0.8265936659524857
+    },
+    "historical_recomputed_metrics_on_its_recorded_targets": {
+      "n": 1100,
+      "mae": 0.29849841031161223,
+      "rmse": 0.39260558537152174,
+      "pearson": 0.8265936659524857,
+      "spearman": 0.8312754047355416
+    },
+    "historical_model_sha256": "90bfcb80e17f6a93483a1e01e842cf8a496e1d3dd1e690e80e6cdb4797c41292",
+    "historical_evaluation_sha256": "1db5190e3e76181b142fff5f1aec53de1e35fa2ddbb0a8abd57b2422a4d9544a",
+    "historical_predictions_sha256": "3fc2d21f92a67f4b87cf28eb36de5f30cced288ebdc9183bb6f5ea56a4d49a45",
+    "historical_vs_current_target_max_difference": 2.061767574446094e-07,
+    "paired_comparison": {
+      "n_images": 1100,
+      "repetitions": 5000,
+      "rng_seed": 20261113,
+      "delta_definition": "baseline MAE minus candidate MAE; positive favors candidate",
+      "mae_improvement": 0.02232857099300038,
+      "ci95_lower": 0.014870543196912419,
+      "ci95_upper": 0.02966028073976013,
+      "interval_excludes_zero_in_improvement_direction": true,
+      "bootstrap_unit": "image",
+      "method": "paired percentile bootstrap",
+      "limitation": "Conditional on these fitted models; does not capture training-seed uncertainty or unresolved same-person image correlation."
+    },
+    "comparison_scope": "One validation-selected candidate versus the saved fixed v3.1 model predictions; not a comparison against a selected R0 seed."
+  },
+  "current_target_max_difference": 0.0,
+  "evaluation_sources": [
+    {
+      "recipe": "R0",
+      "seed": 17,
+      "path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R0-seed17\\evaluation.json",
+      "evaluation_sha256": "ad13dfd9f24f9f19dc69ab3df5a4be3423cd8b183ffa607e95f3317282bfce6f",
+      "predictions_sha256": "c7c6921fd56f7fb05aa786e79dba2fd9f4bfaa9afc8f1c8afe19c0173c026e2d"
+    },
+    {
+      "recipe": "R0",
+      "seed": 2026,
+      "path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R0-seed2026\\evaluation.json",
+      "evaluation_sha256": "aed030f490775f8b27c16e36155ada099626433b21690d7e4da46d4527de73cf",
+      "predictions_sha256": "757b65dc48932f6c2450e6d51b3f2c00e369b97b27e858d85186a76fff3f29cb"
+    },
+    {
+      "recipe": "R0",
+      "seed": 42,
+      "path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R0-seed42\\evaluation.json",
+      "evaluation_sha256": "ffd4d32d661ede8ffde858b3fa61b8b5bacbc127489458aa9e89720af6315f0f",
+      "predictions_sha256": "d1012e4c9804496d00abda3cc59fc309b4a846c21e634fd2afdd41f29b452528"
+    },
+    {
+      "recipe": "R4",
+      "seed": 17,
+      "path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R4-seed17\\evaluation.json",
+      "evaluation_sha256": "ef816cc60428fdac5e1b4c5c8ffe28f4effa1754c885bb8c7d0a4239ac0bed23",
+      "predictions_sha256": "e3d0f60e4e69a7856242484f35e232d2375651dac0f9316ad39cd4ff7806a91f"
+    },
+    {
+      "recipe": "R4",
+      "seed": 2026,
+      "path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R4-seed2026\\evaluation.json",
+      "evaluation_sha256": "014c5b22748c3b99ed2e17ca42eeec0569f76d9a68ff65ae461edb240ae970aa",
+      "predictions_sha256": "b0d9d6a685748b643b7c5c2a9cd6281f50af3bdf9b5d2026630cfc0e0a508575"
+    },
+    {
+      "recipe": "R4",
+      "seed": 42,
+      "path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\final-evaluation\\R4-seed42\\evaluation.json",
+      "evaluation_sha256": "48b78918bfa0c6d2a0e35c076a4820771f40354295cd6f36b20c3c0fcff3b7c8",
+      "predictions_sha256": "73bf4b5ff0802bed08fade487bcd8211f126ff37f42bcd0a998111b77faffa5d"
+    }
+  ],
+  "release_decision": "Not made by this report tool; mobile integration, latency and quality gates remain separate."
+}

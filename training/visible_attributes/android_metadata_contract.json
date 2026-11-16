@@ -1,0 +1,64 @@
+{
+  "format": "visible-attributes-mnv3-v1",
+  "status": "contract_only_model_not_trained",
+  "labels": [
+    "Smiling",
+    "Eyeglasses",
+    "Mouth_Slightly_Open"
+  ],
+  "display_labels": [
+    "微笑",
+    "眼镜",
+    "嘴巴张开"
+  ],
+  "input": {
+    "name": "input",
+    "shape": [
+      "N",
+      3,
+      224,
+      224
+    ],
+    "dtype": "float32",
+    "layout": "NCHW"
+  },
+  "output": {
+    "name": "logits",
+    "shape": [
+      "N",
+      3
+    ],
+    "activation": "three independent sigmoid scores; NOT softmax"
+  },
+  "thresholds": null,
+  "trained_model_sha256": null,
+  "decision": "sigmoid(logit[i]) >= exported validation threshold[i]",
+  "preprocessing": {
+    "version": "mediapipe-largest-face-facecrop-v1-rgb224",
+    "face_task_sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "num_faces": 3,
+    "min_face_detection_confidence": 0.5,
+    "min_face_presence_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "face_selection": "largest landmark bounding-box area; first on ties",
+    "crop": "faceCrop v1: box max edge *1.45, center_y minus .06*size, clipped to image bounds",
+    "crop_implementation_sha256": "8205571ffe7e2e36511b27ff7e40fc4f104509f2fb2432660f38b3afd120a256",
+    "resize": "224x224 bilinear",
+    "color": "RGB",
+    "dtype": "float32",
+    "layout": "NCHW contiguous",
+    "pixel_scale": "divide by 255",
+    "mean": [
+      0.48500001430511475,
+      0.4560000002384186,
+      0.4059999883174896
+    ],
+    "std": [
+      0.2290000021457672,
+      0.2240000069141388,
+      0.22499999403953552
+    ]
+  },
+  "score_type": "uncalibrated sigmoid scores; not calibrated probabilities",
+  "source": "ImageNet1K V1 initialization; project training on normalized official CelebA visible labels only"
+}

@@ -1,0 +1,48 @@
+{
+  "format": "facescore-apk-model-bundle-v2",
+  "version_name": "3.4.1",
+  "version_code": 16,
+  "apk_filename": "FaceScoreLab-v3.4.1-restyle.apk",
+  "apk_sha256": "f86fe046cb2e4faf8f7a269a90ab40e94ea5b1ed2cde4cb181d472d35dcd7814",
+  "apk_bytes": 490564151,
+  "assets": {
+    "beauty_female.onnx": {
+      "sha256": "d0ed17ac6c61bea2b53e2d9e81aed3853bcda3a7f0e9f1f1fda612aa0b9c1844",
+      "bytes": 4018418
+    },
+    "beauty_male.onnx": {
+      "sha256": "1e06c1981dbf37f6040dacd0766dbdf4e8d9bfa09cb404372b632346fd5145c7",
+      "bytes": 4018418
+    },
+    "beauty_mobilenetv3_small.onnx": {
+      "sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4",
+      "bytes": 4018418
+    },
+    "face_attributes.onnx": {
+      "sha256": "1bf7c6453bec2fb28e0830f3a76dceb9ffd020124f87b28da5355940a7bc6e48",
+      "bytes": 43296036
+    },
+    "face_landmarker.task": {
+      "sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+      "bytes": 3758596
+    },
+    "face_parsing_mask.onnx": {
+      "sha256": "413079d905d1f0b690287c47beeabb80c55bf60804c462dd44d8bca7ee048b85",
+      "bytes": 26624109
+    },
+    "fpem_mobile.onnx": {
+      "sha256": "e19189026ffde139b9966ddb5c99d67872ca54680cc6b889df9df5d6cecad671",
+      "bytes": 288994459
+    },
+    "gender_classifier.onnx": {
+      "sha256": "7aca5c24f6c324577e16b0d92ae61a8f407fcd7fe66b2babec7c41efd2a31fe7",
+      "bytes": 6085142
+    },
+    "visible_attributes.onnx": {
+      "sha256": "533beea26c0b0b0d83ae6f094aa37d72357fe22492ddfdb23ac3b1f591f7be95",
+      "bytes": 4020254
+    }
+  },
+  "weights_omitted_from_source": false,
+  "all_required_models_present_in_source": true
+}

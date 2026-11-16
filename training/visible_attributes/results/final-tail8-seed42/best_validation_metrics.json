@@ -1,0 +1,66 @@
+{
+  "macro_f1": 0.8886935246359132,
+  "macro_f1_label_count": 3,
+  "per_label": [
+    {
+      "known_available": 1988,
+      "positive_support": 971,
+      "negative_support": 1017,
+      "tp": 853,
+      "fp": 112,
+      "fn": 118,
+      "tn": 905,
+      "precision": 0.883937823834197,
+      "recall": 0.878475798146241,
+      "f1": 0.881198347107438,
+      "balanced_accuracy": 0.8841739856021273,
+      "label": "Smiling",
+      "threshold": 0.425,
+      "unknown_labels": 0,
+      "known_total": 2000,
+      "coverage_of_known": 0.994
+    },
+    {
+      "known_available": 1988,
+      "positive_support": 138,
+      "negative_support": 1850,
+      "tp": 121,
+      "fp": 8,
+      "fn": 17,
+      "tn": 1842,
+      "precision": 0.937984496124031,
+      "recall": 0.8768115942028986,
+      "f1": 0.9063670411985019,
+      "balanced_accuracy": 0.9362436349392871,
+      "label": "Eyeglasses",
+      "threshold": 0.85,
+      "unknown_labels": 0,
+      "known_total": 2000,
+      "coverage_of_known": 0.994
+    },
+    {
+      "known_available": 1988,
+      "positive_support": 915,
+      "negative_support": 1073,
+      "tp": 781,
+      "fp": 82,
+      "fn": 134,
+      "tn": 991,
+      "precision": 0.9049826187717266,
+      "recall": 0.853551912568306,
+      "f1": 0.8785151856017998,
+      "balanced_accuracy": 0.888565331866632,
+      "label": "Mouth_Slightly_Open",
+      "threshold": 0.475,
+      "unknown_labels": 0,
+      "known_total": 2000,
+      "coverage_of_known": 0.994
+    }
+  ],
+  "coverage": {
+    "images_total": 2000,
+    "images_with_output": 1988,
+    "face_detection_output_rate": 0.994
+  },
+  "score_type": "uncalibrated independent sigmoid scores; not calibrated probabilities"
+}

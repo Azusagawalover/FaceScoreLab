@@ -1,0 +1,193 @@
+{
+  "model_version": "scut-mobilenetv3-small-selftrained-fold1-v1",
+  "architecture": "MobileNetV3 Small + LayerNorm + 128-unit regression head",
+  "initialization": "torchvision ImageNet1K V1 only; never initialized with an SCUT-trained beauty checkpoint",
+  "training": "Freeze features 0-8; train regression head, then fine-tune features 9-12 and head; freeze all BatchNorm running statistics",
+  "selected_stage": "late_finetune",
+  "selected_epoch": 16,
+  "seed": 42,
+  "counts": {
+    "train": 3960,
+    "validation": 440,
+    "test": 1100
+  },
+  "target_scale": [
+    1,
+    5
+  ],
+  "selection_metric": "validation MAE on raw predictions",
+  "validation_mae": 0.2843173625794324,
+  "test_raw": {
+    "n": 1100,
+    "mae": 0.29849841031161223,
+    "rmse": 0.39260558537152174,
+    "pearson": 0.8265936659524857
+  },
+  "test_clipped": {
+    "n": 1100,
+    "mae": 0.2976890728690407,
+    "rmse": 0.390472458484039,
+    "pearson": 0.8280182167074351
+  },
+  "constant_train_mean_baseline": {
+    "n": 1100,
+    "mae": 0.5665135083415291,
+    "rmse": 0.6827141659651831,
+    "pearson": null
+  },
+  "groups": {
+    "AF": {
+      "n": 404,
+      "mae": 0.3314035487647104,
+      "rmse": 0.4354625378373161,
+      "pearson": 0.7944317179549933
+    },
+    "AM": {
+      "n": 394,
+      "mae": 0.27114455076643657,
+      "rmse": 0.3606061584660699,
+      "pearson": 0.8282988496742006
+    },
+    "CF": {
+      "n": 171,
+      "mae": 0.29856279649232564,
+      "rmse": 0.38210720638364476,
+      "pearson": 0.8615860955268945
+    },
+    "CM": {
+      "n": 131,
+      "mae": 0.27920630869974616,
+      "rmse": 0.35749328038992456,
+      "pearson": 0.8348528040216256
+    }
+  },
+  "limitation": "SCUT official fold 1, successful detector crops only. Not real-phone end-to-end accuracy. Dataset labels reflect subjective raters. Exact duplicates removed; identity overlap cannot be excluded.",
+  "duration_seconds": 282.60899999999674,
+  "imagenet_checkpoint_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+  "imagenet_checkpoint_url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+  "late_block_weight_change_l2": 1.3009228471966698,
+  "conversion_parity": [
+    {
+      "name": "AF1000.jpg",
+      "pytorch": 3.857804775238037,
+      "onnx": 3.8578100204467773,
+      "absolute_difference": 5.245208740234375e-06
+    },
+    {
+      "name": "AF1002.jpg",
+      "pytorch": 3.077873706817627,
+      "onnx": 3.0778748989105225,
+      "absolute_difference": 1.1920928955078125e-06
+    },
+    {
+      "name": "AF1006.jpg",
+      "pytorch": 3.049248695373535,
+      "onnx": 3.0492494106292725,
+      "absolute_difference": 7.152557373046875e-07
+    },
+    {
+      "name": "AF1011.jpg",
+      "pytorch": 3.5359885692596436,
+      "onnx": 3.535989999771118,
+      "absolute_difference": 1.430511474609375e-06
+    },
+    {
+      "name": "AF1013.jpg",
+      "pytorch": 3.2633421421051025,
+      "onnx": 3.2633461952209473,
+      "absolute_difference": 4.0531158447265625e-06
+    },
+    {
+      "name": "AF1020.jpg",
+      "pytorch": 2.274888515472412,
+      "onnx": 2.2748875617980957,
+      "absolute_difference": 9.5367431640625e-07
+    },
+    {
+      "name": "AF1029.jpg",
+      "pytorch": 3.662278175354004,
+      "onnx": 3.6622791290283203,
+      "absolute_difference": 9.5367431640625e-07
+    },
+    {
+      "name": "AF1033.jpg",
+      "pytorch": 2.528327226638794,
+      "onnx": 2.5283281803131104,
+      "absolute_difference": 9.5367431640625e-07
+    },
+    {
+      "name": "AF1034.jpg",
+      "pytorch": 3.1585159301757812,
+      "onnx": 3.158517837524414,
+      "absolute_difference": 1.9073486328125e-06
+    },
+    {
+      "name": "AF1039.jpg",
+      "pytorch": 3.560792922973633,
+      "onnx": 3.560789108276367,
+      "absolute_difference": 3.814697265625e-06
+    },
+    {
+      "name": "AF1040.jpg",
+      "pytorch": 2.0123202800750732,
+      "onnx": 2.0123274326324463,
+      "absolute_difference": 7.152557373046875e-06
+    },
+    {
+      "name": "AF1047.jpg",
+      "pytorch": 3.783494234085083,
+      "onnx": 3.7834954261779785,
+      "absolute_difference": 1.1920928955078125e-06
+    },
+    {
+      "name": "AF105.jpg",
+      "pytorch": 3.609328508377075,
+      "onnx": 3.609330177307129,
+      "absolute_difference": 1.6689300537109375e-06
+    },
+    {
+      "name": "AF1051.jpg",
+      "pytorch": 2.6379799842834473,
+      "onnx": 2.637979745864868,
+      "absolute_difference": 2.384185791015625e-07
+    },
+    {
+      "name": "AF1054.jpg",
+      "pytorch": 4.069007873535156,
+      "onnx": 4.069012641906738,
+      "absolute_difference": 4.76837158203125e-06
+    },
+    {
+      "name": "AF106.jpg",
+      "pytorch": 2.7701847553253174,
+      "onnx": 2.770185947418213,
+      "absolute_difference": 1.1920928955078125e-06
+    },
+    {
+      "name": "AF1063.jpg",
+      "pytorch": 4.280454635620117,
+      "onnx": 4.280455589294434,
+      "absolute_difference": 9.5367431640625e-07
+    },
+    {
+      "name": "AF107.jpg",
+      "pytorch": 2.323237419128418,
+      "onnx": 2.3232383728027344,
+      "absolute_difference": 9.5367431640625e-07
+    },
+    {
+      "name": "AF1072.jpg",
+      "pytorch": 3.6265554428100586,
+      "onnx": 3.626553535461426,
+      "absolute_difference": 1.9073486328125e-06
+    },
+    {
+      "name": "AF108.jpg",
+      "pytorch": 3.0009546279907227,
+      "onnx": 3.0009572505950928,
+      "absolute_difference": 2.6226043701171875e-06
+    }
+  ],
+  "model_sha256": "90bfcb80e17f6a93483a1e01e842cf8a496e1d3dd1e690e80e6cdb4797c41292",
+  "checkpoint_sha256": "11adef96a2e8da3c838f4eb53ab631823b44121d39955c287a1d3336e1939313"
+}

@@ -1,0 +1,39 @@
+Selected close-portrait image credits
+Checked from Wikimedia Commons API/file pages on 2026-11-16.
+These images are existing public headshot crops from Commons. No local cropping, retouching, background changes, or other pixel edits were performed. Downloaded CDN renditions are sufficient for App demos and thumbnails.
+
+1. Katherine Maher (cropped)
+Local file: Katherine_Maher__cropped_.jpg
+Downloaded rendition: 960 x 1164
+Source original crop: 2784 x 3375
+Author: Victor Grigas / VGrigas (WMF)
+Credit line: Katherine Maher (cropped), photo by Victor Grigas / Wikimedia Foundation, CC BY-SA 3.0, via Wikimedia Commons.
+File/source page: https://commons.wikimedia.org/wiki/File:Katherine_Maher_(cropped).jpg
+Original photograph: https://commons.wikimedia.org/wiki/File:Katherine_Maher.jpg
+Download URL: https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Katherine_Maher_%28cropped%29.jpg/960px-Katherine_Maher_%28cropped%29.jpg
+License: Creative Commons Attribution-ShareAlike 3.0 Unported
+License URL: https://creativecommons.org/licenses/by-sa/3.0/
+License evidence: commons-close-portraits-metadata.json, page 97055801, extmetadata.LicenseShortName=CC BY-SA 3.0; wikitext self|cc-by-sa-3.0; photographer listed as VGrigas (WMF), own work.
+SHA-256: 1A4F00E31391862287FCA60B4E300002300B573C79974B7E5FEFBBB72CC7242A
+Visible composition: adult head-and-shoulders portrait, nearly frontal, natural smile, soft daylight, green defocused background; face occupies over 40 percent of image width.
+
+2. Jimmy Wales - August 2019 (cropped)
+Local file: man-jimmy-wales-close.jpg
+Downloaded rendition: 960 x 1350
+Source original crop: 2545 x 3578
+Author: Zachary McCune / Wikimedia Foundation
+Credit line: Jimmy Wales - August 2019 (cropped), photo by Zachary McCune / Wikimedia Foundation, CC BY-SA 4.0, via Wikimedia Commons.
+File/source page: https://commons.wikimedia.org/wiki/File:Jimmy_Wales_-_August_2019_(cropped).jpg
+Original photograph: https://commons.wikimedia.org/wiki/File:Jimmy_Wales_-_August_2019.jpg
+Download URL: https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Jimmy_Wales_-_August_2019_%28cropped%29.jpg/960px-Jimmy_Wales_-_August_2019_%28cropped%29.jpg
+License: Creative Commons Attribution-ShareAlike 4.0 International
+License URL: https://creativecommons.org/licenses/by-sa/4.0/
+License evidence: commons-jimmy-portrait-metadata.json, page 85198106; extmetadata.LicenseShortName=CC BY-SA 4.0; wikitext WMF-staff-upload with author Zachary McCune and license CC-BY-SA 4.0.
+SHA-256: 06225F088CAAF3C75214ADC554176A49FFF34F59B6A15C21EAB280C1EE253F0F
+Visible composition: adult head-and-shoulders portrait, nearly frontal, soft daylight, green defocused background, transparent glasses with eyes clearly visible; face occupies over 40 percent of image width.
+
+App use
+Keep the credit lines, source URLs, and license URLs with the distributed image assets and show accessible photo credits in the App's credits/about/licences area. The photos retain their own CC BY-SA licenses. If the images themselves are later modified, disclose changes and license the adapted images under the relevant ShareAlike terms. Including separate licensed images in an App does not by itself relicense independent App code.
+The sources identify the pictured people and publish the photographs for reuse under the stated copyright licenses; no endorsement by the pictured people, photographers, or Wikimedia Foundation should be implied. The Jimmy file page additionally flags personality rights. This check does not include a separate model-release document.
+
+Earlier full-body/large-headroom candidates in PORTRAIT-LICENSES.txt are superseded for UI use by these two headshots.

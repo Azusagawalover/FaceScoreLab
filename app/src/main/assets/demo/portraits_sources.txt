@@ -1,0 +1,17 @@
+示例 A：Katherine Maher (cropped)
+摄影：Victor Grigas / Wikimedia Foundation
+许可：CC BY-SA 3.0
+https://creativecommons.org/licenses/by-sa/3.0/
+照片来源：
+https://commons.wikimedia.org/wiki/File:Katherine_Maher_(cropped).jpg
+
+示例 B：Jimmy Wales - August 2019 (cropped)
+摄影：Zachary McCune / Wikimedia Foundation
+许可：CC BY-SA 4.0
+https://creativecommons.org/licenses/by-sa/4.0/
+照片来源：
+https://commons.wikimedia.org/wiki/File:Jimmy_Wales_-_August_2019_(cropped).jpg
+
+两张照片分别按上述许可提供。使用 Wikimedia Commons 发布的头像缩略版本，本应用未对原图进行美颜、调色或背景替换；界面中的小缩略图按显示区域适配。
+
+照片用于体验分析流程，分数由当前模型实际运行生成。照片人物、摄影者及 Wikimedia Foundation 不代表对本应用的背书。

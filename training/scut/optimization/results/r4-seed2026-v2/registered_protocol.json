@@ -1,0 +1,465 @@
+{
+  "plan_version": "1.0",
+  "date": "2026-11-13",
+  "timezone": "Asia/Shanghai",
+  "project": "D:/AndroidStudioProjects/FaceScoreLab",
+  "status": "executing_in_current_session",
+  "automatic_execution_enabled": false,
+  "baseline_delivery": "3.1",
+  "first_training_batch": {
+    "screening_configs": 6,
+    "maximum_training_runs_including_repeats": 10,
+    "seeds": [
+      17,
+      42,
+      2026
+    ],
+    "screening_seed": 42,
+    "selection_metric": "validation_raw_mae_1_to_5",
+    "batch_size": 64,
+    "weight_decay": 0.01,
+    "dropout": 0.2,
+    "head_stage_lr": 0.0008,
+    "tail_stage_head_lr": 0.00012,
+    "tail_stage_backbone_lr": 3e-05,
+    "original_protocol_min_improvement": 1e-05,
+    "new_protocol_min_improvement": 0.0001,
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 3,
+    "scheduler_min_head_lr": 1e-06,
+    "scheduler_min_backbone_lr": 2.5e-07,
+    "tail_epoch_limit_except_original_baseline": 60,
+    "early_stopping_patience_except_original_baseline": 8,
+    "screening_compute_wall_hours_cap": 6,
+    "confirmation_compute_wall_hours_cap": 6,
+    "single_run_compute_wall_hours_cap": 3,
+    "parallel_training_jobs": 1,
+    "initial_torch_threads": 4,
+    "memory_target_gib": 8,
+    "new_disk_budget_gib": 25,
+    "paid_compute_budget": 0,
+    "budgets_are_proposed_not_consumed": false
+  },
+  "experiments": [
+    {
+      "id": "R0",
+      "parent": null,
+      "change": "复现原16轮尾部训练协议",
+      "status": "planned"
+    },
+    {
+      "id": "R1",
+      "parent": "R0",
+      "change": "尾部上限60轮和8轮早停",
+      "status": "planned"
+    },
+    {
+      "id": "R2",
+      "parent": "R1",
+      "change": "验证MAE停滞3轮后学习率减半",
+      "status": "planned"
+    },
+    {
+      "id": "R3",
+      "parent": "R2",
+      "change": "MSE替换为Huber delta 0.3",
+      "status": "planned"
+    },
+    {
+      "id": "R4",
+      "parent": "R2",
+      "change": "原图加2个固定轻增强视图，每epoch每原图取一个视图",
+      "status": "planned"
+    },
+    {
+      "id": "R5",
+      "parent": "R2",
+      "change": "方形补边裁剪，训练与端侧同步版本",
+      "status": "planned"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "P0-01",
+      "name": "冻结基线与历史产物",
+      "depends_on": [],
+      "status": "completed",
+      "owner_role": "A B D",
+      "acceptance": "历史产物完整可追溯，新输出目录独立",
+      "outputs": [
+        "baseline_manifest",
+        "source_snapshot",
+        "artifact_hashes"
+      ],
+      "updated_at": "2026-11-13T19:14:11+08:00",
+      "evidence": "Baseline snapshot: 120 files, 375689722 bytes; manifest and original model SHA256 verified."
+    },
+    {
+      "id": "P0-02",
+      "name": "拆分训练验证导出和最终测试入口",
+      "depends_on": [
+        "P0-01"
+      ],
+      "status": "in_progress",
+      "owner_role": "B",
+      "acceptance": "初筛不自动查看测试标签或产生测试成绩",
+      "outputs": [
+        "training_entry",
+        "export_entry",
+        "locked_evaluation_entry"
+      ],
+      "updated_at": "2026-11-13T19:14:11+08:00",
+      "evidence": "Implementing independent training-validation, export and locked-test entry points."
+    },
+    {
+      "id": "P0-03",
+      "name": "缓存内容版本和完整断点状态",
+      "depends_on": [
+        "P0-01"
+      ],
+      "status": "in_progress",
+      "owner_role": "B",
+      "acceptance": "改变内容或预处理使缓存失效，断点含对应优化器与随机状态",
+      "outputs": [
+        "cache_manifest",
+        "best_checkpoint",
+        "last_checkpoint"
+      ],
+      "updated_at": "2026-11-13T19:14:11+08:00",
+      "evidence": "Implementing content-versioned feature caches and complete optimizer/RNG checkpoints."
+    },
+    {
+      "id": "P0-04",
+      "name": "实验登记和计算成本测量",
+      "depends_on": [
+        "P0-02",
+        "P0-03"
+      ],
+      "status": "planned",
+      "owner_role": "A B",
+      "acceptance": "配置可追溯，2至3轮测时，预算和停止条件已登记",
+      "outputs": [
+        "experiment_registry",
+        "cost_pilot"
+      ]
+    },
+    {
+      "id": "D0",
+      "name": "数据和预训练来源审计",
+      "depends_on": [
+        "P0-01"
+      ],
+      "status": "in_progress",
+      "owner_role": "A C",
+      "acceptance": "许可、来源、标签、划分及未知重叠明确",
+      "outputs": [
+        "dataset_registry",
+        "model_provenance"
+      ],
+      "updated_at": "2026-11-13T19:14:11+08:00",
+      "evidence": "Auditing pretrained model sources, labels and known or unknown training overlap."
+    },
+    {
+      "id": "T0",
+      "name": "六配置回归初筛",
+      "depends_on": [
+        "P0-04"
+      ],
+      "status": "planned",
+      "owner_role": "B",
+      "acceptance": "R0复现可解释，最多六配置，仅验证集选择",
+      "outputs": [
+        "validation_comparison",
+        "training_curves",
+        "run_records"
+      ]
+    },
+    {
+      "id": "T1",
+      "name": "原方法与优胜方法三种子确认",
+      "depends_on": [
+        "T0"
+      ],
+      "status": "planned",
+      "owner_role": "A B",
+      "acceptance": "累计最多十次训练，全部seed结果和成本公开",
+      "outputs": [
+        "seed_comparison",
+        "candidate_decision"
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "有条件的高级模型研究",
+      "depends_on": [
+        "T1",
+        "D0"
+      ],
+      "status": "conditional",
+      "owner_role": "B",
+      "entry_gate": "已有误差分析支持该方法且短测满足预算",
+      "acceptance": "每批最多两个方向四个配置，记录增量收益及停止原因",
+      "outputs": [
+        "advanced_ablation",
+        "teacher_provenance_if_used"
+      ]
+    },
+    {
+      "id": "D1",
+      "name": "属性标注试点与划分",
+      "depends_on": [
+        "D0"
+      ],
+      "status": "planned",
+      "owner_role": "A C",
+      "acceptance": "200张试点、标签规则、双审方案、全局保留名单和人力预算",
+      "outputs": [
+        "annotation_guideline",
+        "pilot_annotations",
+        "split_manifest"
+      ]
+    },
+    {
+      "id": "V0",
+      "name": "可见属性基线和验证阈值校准",
+      "depends_on": [
+        "D1"
+      ],
+      "status": "planned",
+      "owner_role": "A C",
+      "acceptance": "每项指标和不可判断率，阈值只在验证集选择",
+      "outputs": [
+        "attribute_baseline",
+        "threshold_version",
+        "confusion_matrices"
+      ]
+    },
+    {
+      "id": "V1",
+      "name": "错误类别补样与属性微调",
+      "depends_on": [
+        "V0"
+      ],
+      "status": "conditional",
+      "owner_role": "C",
+      "entry_gate": "校准后仍有稳定错误且训练标签充分",
+      "acceptance": "有效标签掩码，最多两轮各200张补样，独立比较只改阈值基线",
+      "outputs": [
+        "attribute_training_log",
+        "attribute_candidate"
+      ]
+    },
+    {
+      "id": "S0",
+      "name": "分割真值试点和独立评测",
+      "depends_on": [
+        "D0"
+      ],
+      "status": "planned",
+      "owner_role": "A C",
+      "acceptance": "类别映射与坐标一致，来源重叠明确，验证测试掩膜复核",
+      "outputs": [
+        "segmentation_guideline",
+        "mask_pilot",
+        "per_class_metrics"
+      ]
+    },
+    {
+      "id": "S1",
+      "name": "分割有条件适配",
+      "depends_on": [
+        "S0"
+      ],
+      "status": "conditional",
+      "owner_role": "C",
+      "entry_gate": "有标注错误类别和可承担的短测预算",
+      "acceptance": "各部位IoU及成本对照，训练与标签增强同步",
+      "outputs": [
+        "segmentation_ablation",
+        "segmentation_candidate"
+      ]
+    },
+    {
+      "id": "A0",
+      "name": "评分结果版本和历史兼容",
+      "depends_on": [
+        "P0-01"
+      ],
+      "status": "in_progress",
+      "owner_role": "D",
+      "acceptance": "旧score仍为旧几何分数，新增primaryScore不改写旧结果",
+      "outputs": [
+        "result_schema",
+        "history_compatibility_results"
+      ],
+      "updated_at": "2026-11-13T19:14:11+08:00",
+      "evidence": "Implementing primary score schema and backward-compatible geometry history semantics."
+    },
+    {
+      "id": "A1",
+      "name": "每模型输入适配与质量评测",
+      "depends_on": [
+        "A0",
+        "D0"
+      ],
+      "status": "planned",
+      "owner_role": "C D",
+      "acceptance": "相同输入跨运行环境一致，模型各自预处理契约和覆盖率明确",
+      "outputs": [
+        "preprocessing_contracts",
+        "frozen_input_checks",
+        "coverage_report"
+      ]
+    },
+    {
+      "id": "A2",
+      "name": "首页和实时CNN评分接入",
+      "depends_on": [
+        "A0",
+        "A1",
+        "T1"
+      ],
+      "status": "planned",
+      "owner_role": "D",
+      "acceptance": "模型候选通过门槛，同图跨页同版本同量表，实时频率实测",
+      "outputs": [
+        "candidate_apk",
+        "score_consistency_results"
+      ]
+    },
+    {
+      "id": "A3",
+      "name": "推理资源复用和过期任务隔离",
+      "depends_on": [
+        "A0"
+      ],
+      "status": "planned",
+      "owner_role": "D",
+      "acceptance": "无错图回写，小模型Session复用，大模型受内存预算控制",
+      "outputs": [
+        "lifecycle_checks",
+        "latency_breakdown"
+      ]
+    },
+    {
+      "id": "A4",
+      "name": "真机性能与稳定性验收",
+      "depends_on": [
+        "A2",
+        "A3"
+      ],
+      "status": "waiting_for_future_device_access",
+      "owner_role": "D",
+      "acceptance": "至少一台手机冷热延迟、内存、连续拍摄和运行记录",
+      "outputs": [
+        "device_report",
+        "real_camera_checks"
+      ]
+    },
+    {
+      "id": "A5",
+      "name": "量化和包体实验",
+      "depends_on": [
+        "A4"
+      ],
+      "status": "conditional",
+      "owner_role": "B C D",
+      "entry_gate": "浮点模型已冻结且目标设备可用",
+      "acceptance": "训练部分校准，每模型单独精度和收益验证",
+      "outputs": [
+        "quantization_report",
+        "device_specific_packages"
+      ]
+    },
+    {
+      "id": "X0",
+      "name": "区域遮挡解释稳定性",
+      "depends_on": [
+        "A1",
+        "S0"
+      ],
+      "status": "planned",
+      "owner_role": "C D",
+      "acceptance": "解释绑定实际评分模型，缺失区域不伪造零贡献",
+      "outputs": [
+        "explanation_examples",
+        "interpretation_limits"
+      ]
+    },
+    {
+      "id": "E0",
+      "name": "冻结候选与最终基准复测",
+      "depends_on": [
+        "T1",
+        "A2",
+        "V0",
+        "S0"
+      ],
+      "status": "planned",
+      "owner_role": "A",
+      "acceptance": "候选和规则测试前锁定，原始指标/逐图结果/置信区间保留",
+      "outputs": [
+        "locked_candidate_manifest",
+        "paired_evaluation",
+        "release_decision"
+      ]
+    },
+    {
+      "id": "E1",
+      "name": "独立手机照片评价",
+      "depends_on": [
+        "E0",
+        "A4"
+      ],
+      "status": "waiting_for_future_data_and_device",
+      "owner_role": "A C D",
+      "acceptance": "开发和验收人群分开，无颜值真值则不报告手机评分准确率",
+      "outputs": [
+        "prospective_evaluation",
+        "coverage_and_failures"
+      ]
+    },
+    {
+      "id": "RLS",
+      "name": "稳定版本和回退构建",
+      "depends_on": [
+        "E0",
+        "E1",
+        "X0"
+      ],
+      "status": "planned",
+      "owner_role": "D",
+      "acceptance": "模型、功能、历史、设备门槛通过；回退版本号递增且数据兼容",
+      "outputs": [
+        "stable_apk",
+        "rollback_build",
+        "source_and_hashes"
+      ]
+    },
+    {
+      "id": "DOC",
+      "name": "课程报告与答辩证据",
+      "depends_on": [
+        "RLS"
+      ],
+      "status": "planned",
+      "owner_role": "A B C D",
+      "acceptance": "实际结果和局限可追溯，个人贡献按真实工作填写",
+      "outputs": [
+        "course_report",
+        "figures",
+        "demo_steps",
+        "handoff_summary"
+      ]
+    }
+  ],
+  "status_rules": {
+    "conditional": "只有进入条件成立才启动，并非必做",
+    "waiting_for_future_device_access": "执行到该阶段需要手机；不代表本轮正在等待授权",
+    "completed": "产物存在且验收证据通过时才可设置",
+    "budget_exhausted": "先汇总本阶段，不能静默扩大实验搜索",
+    "no_improvement_two_batches": "结束该方向，转向数据、输入质量或性能"
+  },
+  "current_run_root": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run",
+  "updated_at": "2026-11-13T19:14:11+08:00"
+}

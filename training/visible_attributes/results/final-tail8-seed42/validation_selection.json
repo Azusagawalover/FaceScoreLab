@@ -1,0 +1,12 @@
+{
+  "selected_run": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\visible-attributes\\tail8-seed42",
+  "created_utc": "2026-11-13T12:54:50.833702+00:00",
+  "head_validation_macro_f1": 0.8275413706453394,
+  "tail_validation_macro_f1": 0.8886935246359132,
+  "gain": 0.06115215399057383,
+  "required_gain": 0.005,
+  "protocol_sha256": "170ce3240923e2666770479398cbccfd4f39fcbf13abf45dffc1b2dd63cad78b",
+  "head_metrics_sha256": "7d204e534824d50403a0716a0ca10006938f88c9c4298e431c17d5153a9e69fb",
+  "tail_metrics_sha256": "87092c20b1de06bc059800646afc227ff191069573fdd28b3f74fcf735386926",
+  "test_results_used_for_selection": false
+}

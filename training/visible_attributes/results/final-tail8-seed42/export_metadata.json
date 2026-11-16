@@ -1,0 +1,113 @@
+{
+  "format": "visible-attributes-mnv3-v1",
+  "checkpoint_sha256": "68829df60d3c3bfd965ce4618a4b1e2ff466f770b245d0630552168fbb1e7370",
+  "onnx_sha256": "533beea26c0b0b0d83ae6f094aa37d72357fe22492ddfdb23ac3b1f591f7be95",
+  "android_metadata_sha256": "c7a30f8683664328a77870957786736744ffd8a84e9f137cf33ca77525603a0f",
+  "parity": [
+    {
+      "name": "162771.jpg",
+      "max_logit_difference": 1.239776611328125e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162777.jpg",
+      "max_logit_difference": 1.33514404296875e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162779.jpg",
+      "max_logit_difference": 3.4332275390625e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162780.jpg",
+      "max_logit_difference": 1.8596649169921875e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162783.jpg",
+      "max_logit_difference": 2.193450927734375e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162789.jpg",
+      "max_logit_difference": 2.6702880859375e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162790.jpg",
+      "max_logit_difference": 1.33514404296875e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162796.jpg",
+      "max_logit_difference": 4.76837158203125e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162807.jpg",
+      "max_logit_difference": 5.7220458984375e-06,
+      "decisions_match": true
+    },
+    {
+      "name": "162812.jpg",
+      "max_logit_difference": 1.52587890625e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162813.jpg",
+      "max_logit_difference": 1.71661376953125e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162824.jpg",
+      "max_logit_difference": 4.482269287109375e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162825.jpg",
+      "max_logit_difference": 3.147125244140625e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162829.jpg",
+      "max_logit_difference": 3.814697265625e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162836.jpg",
+      "max_logit_difference": 5.7220458984375e-06,
+      "decisions_match": true
+    },
+    {
+      "name": "162839.jpg",
+      "max_logit_difference": 3.4332275390625e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162845.jpg",
+      "max_logit_difference": 3.337860107421875e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162886.jpg",
+      "max_logit_difference": 1.2814998626708984e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162889.jpg",
+      "max_logit_difference": 3.62396240234375e-05,
+      "decisions_match": true
+    },
+    {
+      "name": "162917.jpg",
+      "max_logit_difference": 2.288818359375e-05,
+      "decisions_match": true
+    }
+  ],
+  "max_logit_difference": 4.76837158203125e-05,
+  "parity_split": "validation",
+  "test_targets_opened": false,
+  "model_bytes": 4020254,
+  "smoke_not_for_release": false
+}

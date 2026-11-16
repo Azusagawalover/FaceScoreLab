@@ -1,0 +1,39 @@
+﻿lucide 图标许可声明
+================================================================
+本应用的界面图标（相册、拍照、实时、首页、历史、研究）取自
+lucide 图标库 v0.460.0：
+
+    https://lucide.dev
+    https://github.com/lucide-icons/lucide
+
+许可：ISC License
+
+Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022
+as part of Feather (MIT). All other copyright (c) for Lucide are held
+by Lucide Contributors 2022.
+
+Permission to use, copy, modify, and/or distribute this software for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+转换方式
+  原始 SVG 为 24×24、stroke 描边、currentColor。
+  已转换为 Android Vector Drawable（res/drawable/ic_*.xml），
+  描边色留为 #FF64748B 占位，运行时由 setTint 跟随主题状态色。
+
+涉及文件
+  ic_action_gallery.xml   ← image
+  ic_action_camera.xml    ← camera
+  ic_action_live.xml      ← video
+  ic_tab_home.xml         ← scan-face
+  ic_tab_history.xml      ← history
+  ic_tab_research.xml     ← flask-conical

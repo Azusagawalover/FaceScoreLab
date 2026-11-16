@@ -1,0 +1,45 @@
+FaceScoreLab 模型、数据来源与实验边界
+版本：3.4.1（versionCode 16）
+
+运行资产
+工程包含8个ONNX和1个MediaPipe TASK模型。资产身份由相应模型JSON记录；代码许可、检查点发布条件与数据集使用条件分别适用，不能因代码开源而推定所有训练数据可自由再分发。
+
+1. MediaPipe
+Google MediaPipe Android Tasks Vision 0.10.14，按Apache 2.0及相关第三方声明使用。
+项目：https://github.com/google-ai-edge/mediapipe
+模型：https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/latest/face_landmarker.task
+Face Landmarker提供478点及可见动作系数，不是颜值评分器。mouthSmileLeft/right和jawOpen等系数不是校准概率；独立动作精度尚未评测。
+
+2. SCUT回归模型
+通用MobileNetV3 Small由本项目在SCUT-FBP5500官方fold1划分上迁移训练，仅以torchvision ImageNet1K V1权重初始化。Torchvision BSD三条款许可保留于third_party/torchvision/LICENSE。
+数据：https://github.com/HCIILAB/SCUT-FBP5500-Database-Release
+当前通用为R4 seed2026，另有男性/女性数据组内回归头适配权重。手动选择档位实际切换三套模型；两组验证改善未达到0.005门槛，不能称专用模型更准确。通用保持推荐默认。
+SCUT按其非商业研究条件使用。1100张官方fold1测试图是已观察历史基准，身份互斥未证明，指标不能代替真机照片泛化准确率。
+
+3. MEBeauty几何回归
+来源：https://github.com/fbplab/MEBeauty-database
+Lebedeva I, Guo Y, Ying F. MEBeauty: a multi-ethnic facial beauty dataset in-the-wild. Neural Computing and Applications, 2022.
+DOI：10.1007/s00521-021-06535-0
+score_model.json为使用公开68点标注训练的15维岭回归，包含权重、划分统计、特征定义和指标。几何训练使用的标注、划分及保留的girl.jpg、guy.jpg示例来自该官方旧版公开发布，用于非商业课程研究，权利归原权利人。原始训练数据需单独准备，不随源码工程打包。
+训练使用dlib风格68点标注，App使用MediaPipe478点语义映射，存在跨检测器偏差；标注测试误差不是手机端准确率。几何参照统计与CNN档位分别记录，真实发际线需手动校准。
+
+4. CelebA项目训练模型
+数据及使用条件：https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html ，相关研究协议保留于third_party/CelebA及App许可资源。
+三属性模型在ImageNet权重上训练Smiling、Eyeglasses、Mouth_Slightly_Open，使用独立sigmoid。固定测试2000张中1992张有输出，Macro F1=0.897380；F1、覆盖率和总体准确率不能互换。
+可选性别参考学习CelebA Male二元标注，并在验证集拟合Platt校准及阈值；只作为标签参考，不确定个人真实身份，不自动切换评分档位。仅用户确认后应用建议。图像级官方划分不证明身份独立，模型成绩不是实体手机端到端评价。
+
+5. 公开预训练扩展
+FaceAttribNet来自Qualcomm公开模型，由https://github.com/yakhyo/face-attribute分发ONNX；BSD三条款保留于third_party/FaceAttribNet/LICENSE。输出左右眼睁开、眼镜、口罩、太阳镜五项独立标签，无本项目独立五属性精度评价。
+BiSeNet ResNet18来源：https://github.com/yakhyo/face-parsing ，CelebAMask-HQ预训练，19类。分发镜像：https://huggingface.co/PayamFard123/dermaintel-face-parsing 。声明保留于third_party/BiSeNet，尚无本项目真值mIoU/Dice。
+FPEM：https://github.com/Estella-LH/FPEM 。官方检查点SHA256为5e18fb2a807366bd1f4bf8498493437059c60d4862a2f5b54ab664cc92af9615；上游MIT声明随third_party/FPEM保存。CLIP的MIT声明随third_party/CLIP保存。项目完成官方检查点本地推理及转换数值核对，未重训或复现LiveBeauty整套评测；检查点文件名中的0.9243不是本项目成绩。
+旧ResNet50评分器来自evanlyhf/scut-fbp5500-beauty，模型卡保留于training/deep/beauty_model_card.txt，仅作为历史来源记录，已经由自训练SCUT模型替换。
+ONNX Runtime来自Microsoft，遵循MIT及依赖声明。VisibleAttributeResize的第三方来源与许可另见THIRD_PARTY_VISIBLE_RESIZE_LICENSE.txt及res/raw/visible_resize_license.txt。
+
+6. 当前公开示例与图标
+portrait_a.jpg为Katherine Maher头像，Victor Grigas / Wikimedia Foundation摄影，CC BY-SA 3.0。
+portrait_b.jpg为Jimmy Wales头像，Zachary McCune / Wikimedia Foundation摄影，CC BY-SA 4.0。
+准确来源页、许可链接和署名保留于app/src/main/assets/demo/portraits_sources.txt及docs/visual-portrait-credits.txt。人物、摄影者和Wikimedia Foundation不代表对App的背书。Lucide图标许可见LUCIDE_ICONS_LICENSE.txt。
+
+7. 解释范围
+区域解释通过灰色遮挡后真实重复评分描述模型敏感性，不代表改变五官后的因果收益。照片在设备本地处理，App未声明互联网权限，论文由外部浏览器打开。
+研究页只展示可见二维测量、动作系数及图像质量对照，不提供疾病、认知健康或性取向推断。数值移植、功能演示、历史模型评价和真机独立验收分别记录。

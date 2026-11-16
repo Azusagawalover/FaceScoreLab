@@ -1,0 +1,62 @@
+{
+  "format": "facescore-optimization-v1",
+  "status": "completed",
+  "fingerprint": "3525941feb8e122152e37c3eeb796bbad67525f1a38b7ac6c63e97d3646a3f2f",
+  "config": {
+    "format": "facescore-optimization-v1",
+    "id": "R4",
+    "seed": 2026,
+    "plan_sha256": "d84145f5e5868952904937950bf8409711c9b04cd4cc4385718e5321cf86b467",
+    "architecture": "MobileNetV3Small-LayerNorm128",
+    "head_epochs": 100,
+    "head_patience": 16,
+    "batch_size": 64,
+    "dropout": 0.2,
+    "weight_decay": 0.01,
+    "head_lr": 0.0008,
+    "tail_head_lr": 0.00012,
+    "tail_backbone_lr": 3e-05,
+    "tail_epochs": 60,
+    "tail_patience": 8,
+    "min_improvement": 0.0001,
+    "head_min_improvement": 1e-05,
+    "tail_min_improvement": 0.0001,
+    "scheduler": true,
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 3,
+    "scheduler_min_head_lr": 1e-06,
+    "scheduler_min_backbone_lr": 2.5e-07,
+    "loss": "mse",
+    "huber_delta": 0.3,
+    "preprocess": "legacy_facecrop_v1",
+    "augmentation": "two_fixed_mild_views_v1",
+    "augmentation_stage": "tail_only",
+    "frozen_prefix_modules": 9,
+    "smoke": false,
+    "single_run_cap_hours": 3
+  },
+  "counts": {
+    "train": 3960,
+    "validation": 440
+  },
+  "best_stage": "late_finetune",
+  "best_epoch": 27,
+  "validation_mae": 0.2713126296346838,
+  "selection_metric": "validation_raw_mae_1_to_5",
+  "test_evaluated": false,
+  "wall_seconds": 459.7820000000065,
+  "timings": {
+    "preparation_this_process_seconds": 79.32799999999406,
+    "previous_process_seconds": 0.0
+  },
+  "epochs_completed": 74,
+  "batches_completed": 4588,
+  "cache": {
+    "key": "65d3244f4a3a6a3e08c8c0485895f2293b8c2a788a669f5b61f5aa7844c7c8db",
+    "path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\feature-cache\\65d3244f4a3a6a3e08c8c0485895f2293b8c2a788a669f5b61f5aa7844c7c8db\\early_maps.npy",
+    "reused": false,
+    "npy_sha256": "5d05cf268d661a7faabd273d3f2049d30a26d514a78b66ca57d69ba0489b73a8"
+  },
+  "smoke_not_for_release": false,
+  "best_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b"
+}

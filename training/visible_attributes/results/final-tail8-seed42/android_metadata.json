@@ -1,0 +1,71 @@
+{
+  "format": "visible-attributes-mnv3-v1",
+  "model_file": "visible_attributes.onnx",
+  "model_sha256": "533beea26c0b0b0d83ae6f094aa37d72357fe22492ddfdb23ac3b1f591f7be95",
+  "input": {
+    "name": "input",
+    "shape": [
+      "N",
+      3,
+      224,
+      224
+    ],
+    "dtype": "float32",
+    "layout": "NCHW"
+  },
+  "output": {
+    "name": "logits",
+    "shape": [
+      "N",
+      3
+    ],
+    "activation": "independent sigmoid, NOT softmax"
+  },
+  "labels": [
+    "Smiling",
+    "Eyeglasses",
+    "Mouth_Slightly_Open"
+  ],
+  "display_labels": [
+    "微笑",
+    "眼镜",
+    "嘴巴张开"
+  ],
+  "thresholds": [
+    0.425,
+    0.85,
+    0.475
+  ],
+  "decision": "sigmoid(logit[i]) >= thresholds[i]",
+  "threshold_fit_split": "validation",
+  "preprocessing": {
+    "version": "mediapipe-largest-face-facecrop-v1-rgb224",
+    "face_task_sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "num_faces": 3,
+    "min_face_detection_confidence": 0.5,
+    "min_face_presence_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "face_selection": "largest landmark bounding-box area; first on ties",
+    "crop": "faceCrop v1: box max edge *1.45, center_y minus .06*size, clipped to image bounds",
+    "crop_implementation_sha256": "8205571ffe7e2e36511b27ff7e40fc4f104509f2fb2432660f38b3afd120a256",
+    "resize": "224x224 bilinear",
+    "color": "RGB",
+    "dtype": "float32",
+    "layout": "NCHW contiguous",
+    "pixel_scale": "divide by 255",
+    "mean": [
+      0.48500001430511475,
+      0.4560000002384186,
+      0.4059999883174896
+    ],
+    "std": [
+      0.2290000021457672,
+      0.2240000069141388,
+      0.22499999403953552
+    ]
+  },
+  "score_type": "uncalibrated sigmoid score; not calibrated probability",
+  "no_face_behavior": "No output; preserve detection failure/coverage rather than return negative labels",
+  "existing_models": "Separate optional model; existing MediaPipe mouth actions and FaceAttribNet five labels remain distinct",
+  "smoke_not_for_release": false
+}

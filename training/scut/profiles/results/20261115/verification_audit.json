@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "audit_kind": "No inference; saved output arithmetic and tensor provenance only",
+  "source_runner_sha256_matches_registration": true,
+  "profiles": {
+    "male": {
+      "passed": true,
+      "backbone_state_tensors_unchanged": 240,
+      "target_mean_unchanged": true,
+      "head_state_tensors_changed": [
+        "head.0.weight",
+        "head.0.bias",
+        "head.1.weight",
+        "head.1.bias",
+        "head.4.weight",
+        "head.4.bias"
+      ],
+      "head_weight_change_l2": 0.13425607439314924,
+      "selected_epoch": 1,
+      "optimizer_and_rng_present": true,
+      "test_metrics_recomputed_from_saved_predictions": {
+        "general_mae": 0.2528596963108317,
+        "profile_mae": 0.2511946217673165,
+        "paired_mae_improvement": 0.0016650745435151596
+      },
+      "validation_gate_passed": false,
+      "onnx_sha256": "1e06c1981dbf37f6040dacd0766dbdf4e8d9bfa09cb404372b632346fd5145c7"
+    },
+    "female": {
+      "passed": true,
+      "backbone_state_tensors_unchanged": 240,
+      "target_mean_unchanged": true,
+      "head_state_tensors_changed": [
+        "head.0.weight",
+        "head.0.bias",
+        "head.1.weight",
+        "head.1.bias",
+        "head.4.weight",
+        "head.4.bias"
+      ],
+      "head_weight_change_l2": 0.6920651062760261,
+      "selected_epoch": 14,
+      "optimizer_and_rng_present": true,
+      "test_metrics_recomputed_from_saved_predictions": {
+        "general_mae": 0.2974530177940435,
+        "profile_mae": 0.29753763966734514,
+        "paired_mae_improvement": -8.462187330162955e-05
+      },
+      "validation_gate_passed": false,
+      "onnx_sha256": "d0ed17ac6c61bea2b53e2d9e81aed3853bcda3a7f0e9f1f1fda612aa0b9c1844"
+    }
+  }
+}

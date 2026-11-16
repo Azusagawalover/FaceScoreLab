@@ -1,0 +1,71 @@
+---
+license: other
+library_name: pytorch
+pipeline_tag: image-classification
+tags:
+- computer-vision
+- image-regression
+- facial-beauty-prediction
+- resnet50
+- timm
+metrics:
+- mae
+- pearsonr
+---
+
+# SCUT-FBP5500 Beauty Regressor
+
+A **timm ResNet-50** (ImageNet-pretrained) backbone with a **single-output regression head**, fine-tuned on the **SCUT-FBP5500** dataset to predict a continuous facial-attractiveness score in **[1.0, 5.0]** (higher = more conventionally attractive per the dataset's averaged human ratings).
+
+## Results (held-out test split, 40%)
+
+| Metric | This model | Reference SOTA |
+|---|---|---|
+| **MAE** | **≤ 0.27** | — |
+| **Pearson r** | **≈ 0.88** | 0.8997 (ResNeXt-50, Liang et al., ICPR 2018) |
+
+*Metrics are self-reported on the SCUT-FBP5500 test split.*
+
+## Training
+
+- **Backbone:** timm ResNet-50 (ImageNet-pretrained) + a single scalar regression head
+- **Dataset:** SCUT-FBP5500 — 5,500 frontal faces, each scored by ~60 human raters (averaged, 1–5 scale)
+- **Optimizer:** AdamW · **Schedule:** linear warmup + cosine decay · **Epochs:** 50
+- **Regularization / eval tricks:** EMA weights, horizontal-flip test-time augmentation (TTA)
+- **Hardware:** 4× RTX 6000 (PyTorch DDP), ~30 min wall time (UW Hyak)
+- **Split:** 60 / 40 train / test
+
+## Usage
+
+```python
+import torch, timm
+from PIL import Image
+from torchvision import transforms
+
+model = timm.create_model("resnet50", pretrained=False, num_classes=1)
+state = torch.load("beauty_regressor.pt", map_location="cpu")
+model.load_state_dict(state)
+model.eval()
+
+tf = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225]),
+])
+img = tf(Image.open("face.jpg").convert("RGB")).unsqueeze(0)
+with torch.no_grad():
+    score = model(img).item()   # ~[1.0, 5.0]
+print(round(score, 3))
+```
+
+*(Adjust the checkpoint-loading and preprocessing to match your training pipeline if it differs.)*
+
+## Intended use & limitations
+
+This model predicts an **averaged human "attractiveness" rating** from the SCUT-FBP5500 benchmark. Such ratings are **subjective, culturally specific, and reflect the biases of the original raters and dataset composition** (age, ethnicity, and pose distribution). It is intended for **research and educational use only** and should **not** be used to make consequential decisions about people (e.g., hiring, moderation, access, or eligibility). Predictions do not measure any intrinsic human worth.
+
+## Dataset & citation
+
+SCUT-FBP5500: <https://github.com/HCIILAB/SCUT-FBP5500-Database-Release> (see the dataset's license and per-image distribution restrictions).
+
+> Liang, L., Lin, L., Jin, L., Xie, D., Li, M. *SCUT-FBP5500: A Diverse Benchmark Dataset for Multi-Paradigm Facial Beauty Prediction.* ICPR 2018.

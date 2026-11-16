@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- lucide "tab-home" v0.460.0 · ISC 许可 · https://lucide.dev
+     颜色留空（transparent 描边 + 由调用方 setTint），便于跟随主题状态色。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="21dp"
+    android:height="21dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M3 7V5a2 2 0 0 1 2-2h2"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M17 3h2a2 2 0 0 1 2 2v2"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M21 17v2a2 2 0 0 1-2 2h-2"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M7 21H5a2 2 0 0 1-2-2v-2"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M8 14s1.5 2 4 2 4-2 4-2"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M9 9h.01"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M15 9h.01"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

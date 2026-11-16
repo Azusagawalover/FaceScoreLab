@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-15",
+  "references": [
+    {
+      "id": "P1",
+      "arxiv": "2405.11240",
+      "title": "Testing the Performance of Face Recognition for People with Down Syndrome",
+      "pages": [
+        1,
+        2
+      ],
+      "sections": [
+        "Abstract",
+        "I Introduction",
+        "III Data Collection",
+        "IV Experimental Setup"
+      ],
+      "support": "Identity recognition fairness and image capture conditions; not a diagnostic geometric threshold model",
+      "url": "https://arxiv.org/abs/2405.11240",
+      "pdf_path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\2405.11240.pdf",
+      "bytes": 489258,
+      "sha256": "cc05fae0342a2e431ef1def3b4ed51f79654c707a195d65d21149977f311afc2",
+      "original_pdf_checked": true
+    },
+    {
+      "id": "P2",
+      "arxiv": "2502.06341",
+      "title": "Facial Analysis Systems and Down Syndrome",
+      "pages": [
+        1,
+        4,
+        5,
+        14
+      ],
+      "sections": [
+        "Abstract",
+        "3.2 Dataset",
+        "7 Future Work"
+      ],
+      "support": "Commercial system bias, image conditions and transparent documentation; not a disease predictor",
+      "url": "https://arxiv.org/abs/2502.06341",
+      "pdf_path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\2502.06341.pdf",
+      "bytes": 509422,
+      "sha256": "6b715fea9f01a18234892471a0ed7b5ba926daf2a4e583815fef2576d9e94378",
+      "original_pdf_checked": true
+    },
+    {
+      "id": "P3",
+      "arxiv": "1902.10739",
+      "title": "A Replication Study: Machine Learning Models Are Capable of Predicting Sexual Orientation From Facial Images",
+      "pages": [
+        3
+      ],
+      "sections": [
+        "Abstract"
+      ],
+      "support": "Discusses limits and uncertainty about morphology versus presentation; does not validate a personal geometric index",
+      "url": "https://arxiv.org/abs/1902.10739",
+      "pdf_path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\1902.10739.pdf",
+      "bytes": 4961400,
+      "sha256": "1f6bf72febc04a1e621758b0b32207b9c630fc4e24df33cef04234e2fdebba3a",
+      "original_pdf_checked": true
+    },
+    {
+      "id": "P4",
+      "arxiv": "1307.0414",
+      "title": "Challenges in Representation Learning: A report on three machine learning contests",
+      "pages": [
+        3,
+        4
+      ],
+      "sections": [
+        "3 The facial expression recognition challenge"
+      ],
+      "support": "FER2013 dataset and trained learning task; no handcrafted EAR/MAR-to-emotion formula",
+      "url": "https://arxiv.org/abs/1307.0414",
+      "pdf_path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\1307.0414.pdf",
+      "bytes": 344126,
+      "sha256": "c4b8db96252af4ec5717b1d3b119c2b01953dfd856eaf7d3c836212f57a1107d",
+      "original_pdf_checked": true
+    },
+    {
+      "id": "P5",
+      "title": "MediaPipe Face Landmarker official documentation",
+      "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker",
+      "local_path": "D:\\chatgpt\\2026-11-15\\FaceScoreLab-v34-next\\literature\\mediapipe_face_landmarker.html",
+      "support": "478 face landmarks and 52 expression blendshape coefficients; single-frame visible output, not health/identity probabilities"
+    }
+  ],
+  "measurement_definitions": "Project-defined transparent 2D observations. No invented paper norms, diagnosis, cognition or sexual-orientation inference.",
+  "taskbook_typo": "Dataset table says 1902.10737 while bibliography item 6 says 1902.10739; downloaded 1902.10739 matches Leuner title."
+}

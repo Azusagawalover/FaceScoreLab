@@ -1,0 +1,14 @@
+﻿<resources>
+    <style name="Theme.FaceScoreLab.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#16324F</item>
+        <item name="colorPrimaryDark">#0C1F33</item>
+        <item name="colorAccent">#D9562F</item>
+        <item name="android:windowBackground">#FBF9F5</item>
+        <item name="android:statusBarColor">#FBF9F5</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">#1C2431</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+    <style name="Theme.FaceScoreLab" parent="Theme.FaceScoreLab.Base" />
+</resources>

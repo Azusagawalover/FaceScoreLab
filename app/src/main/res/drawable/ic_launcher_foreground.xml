@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自适应图标前景：面部网格字形，限制在 108dp 画布中央约 62dp 的安全区。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:pathData="M54,25C40.8,25 32.8,35 32.8,49C32.8,62.6 41.2,73.8 54,73.8C66.8,73.8 75.2,62.6 75.2,49C75.2,35 67.2,25 54,25Z"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeAlpha="0.92"
+        android:strokeWidth="3.6" />
+
+    <path
+        android:pathData="M42.4,44.8L54,56.4L65.6,44.8M54,56.4L54,69.2M42.4,44.8L65.6,44.8"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeAlpha="0.55"
+        android:strokeWidth="2" />
+
+    <path android:pathData="M45.3,44.8a2.9,2.9 0,1 1,-5.8 0a2.9,2.9 0,1 1,5.8 0"
+        android:fillColor="#FFFFFFFF" />
+    <path android:pathData="M68.5,44.8a2.9,2.9 0,1 1,-5.8 0a2.9,2.9 0,1 1,5.8 0"
+        android:fillColor="#FFFFFFFF" />
+    <path android:pathData="M56.9,56.4a2.9,2.9 0,1 1,-5.8 0a2.9,2.9 0,1 1,5.8 0"
+        android:fillColor="#FFE4703F" />
+    <path android:pathData="M56.4,69.2a2.4,2.4 0,1 1,-4.8 0a2.4,2.4 0,1 1,4.8 0"
+        android:fillColor="#FFFFFFFF" />
+</vector>

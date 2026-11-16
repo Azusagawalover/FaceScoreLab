@@ -1,0 +1,1197 @@
+{
+  "date": "2026-11-13",
+  "cnn": {
+    "architecture": "MobileNetV3 Small + LayerNorm + 128-unit regression head",
+    "training_by": "This project",
+    "model_version": "scut-mobilenetv3-small-aug-r4-seed2026-v2",
+    "initialization": "torchvision ImageNet1K V1 only; never initialized with an SCUT-trained beauty checkpoint",
+    "training": "ImageNet only; freeze features 0-8; MSE head then features 9-12; two fixed mild training views; validation LR schedule; frozen BatchNorm statistics",
+    "dataset": "SCUT-FBP5500, official fold 1",
+    "dataset_mirror": "https://huggingface.co/datasets/MnLgt/scut-fbp5500",
+    "native_scale": [
+      1,
+      5
+    ],
+    "display_scale": [
+      1,
+      10
+    ],
+    "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+    "held_out_benchmark_evaluated": true,
+    "real_phone_end_to_end_evaluated": false,
+    "evaluation": {
+      "model_version": "scut-mobilenetv3-small-aug-r4-seed2026-v2",
+      "architecture": "MobileNetV3 Small + LayerNorm + 128-unit regression head",
+      "initialization": "torchvision ImageNet1K V1 only; never initialized with an SCUT-trained beauty checkpoint",
+      "training": "ImageNet only; freeze features 0-8; MSE head then features 9-12; two fixed mild training views; validation LR schedule; frozen BatchNorm statistics",
+      "selected_stage": "late_finetune",
+      "selected_epoch": 27,
+      "seed": 2026,
+      "counts": {
+        "train": 3960,
+        "validation": 440,
+        "test": 1100
+      },
+      "target_scale": [
+        1,
+        5
+      ],
+      "selection_metric": "validation MAE on raw predictions",
+      "validation_mae": 0.2713126296346838,
+      "test_raw": {
+        "n": 1100,
+        "mae": 0.27616984163160146,
+        "rmse": 0.3631751804811043,
+        "pearson": 0.8477707772756373,
+        "spearman": 0.8467272672229599
+      },
+      "test_clipped": {
+        "n": 1100,
+        "mae": 0.27602635829627986,
+        "rmse": 0.3627882240366097,
+        "pearson": 0.8480783073696386,
+        "spearman": 0.8467272672229599
+      },
+      "constant_train_mean_baseline": {
+        "n": 1100,
+        "mae": 0.5665135083415291,
+        "rmse": 0.6827141659651831,
+        "pearson": null
+      },
+      "groups": {
+        "AF": {
+          "n": 404,
+          "mae": 0.3044376037571973,
+          "rmse": 0.39775689828737937,
+          "pearson": 0.8179379903487288
+        },
+        "AM": {
+          "n": 394,
+          "mae": 0.24991029955901714,
+          "rmse": 0.33598962251909614,
+          "pearson": 0.8510413662107771
+        },
+        "CF": {
+          "n": 171,
+          "mae": 0.28095142288694325,
+          "rmse": 0.35414956548230664,
+          "pearson": 0.8789692959117472
+        },
+        "CM": {
+          "n": 131,
+          "mae": 0.26173040104529693,
+          "rmse": 0.34111790621259613,
+          "pearson": 0.8463198568876088
+        }
+      },
+      "limitation": "Previously observed official SCUT fold1 benchmark; image-level identity overlap cannot be ruled out; subjective rater labels; not real-phone end-to-end accuracy.",
+      "duration_seconds": 459.7820000000065,
+      "imagenet_checkpoint_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "imagenet_checkpoint_url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+      "late_block_weight_change_l2": 1.398276543517536,
+      "conversion_parity": [
+        {
+          "name": "AF1004.jpg",
+          "pytorch": 3.6048169136047363,
+          "onnx": 3.604818820953369,
+          "absolute_difference": 1.9073486328125e-06
+        },
+        {
+          "name": "AF101.jpg",
+          "pytorch": 2.5257344245910645,
+          "onnx": 2.5257351398468018,
+          "absolute_difference": 7.152557373046875e-07
+        },
+        {
+          "name": "AF1014.jpg",
+          "pytorch": 3.9694418907165527,
+          "onnx": 3.9694466590881348,
+          "absolute_difference": 4.76837158203125e-06
+        },
+        {
+          "name": "AF1024.jpg",
+          "pytorch": 3.5234789848327637,
+          "onnx": 3.5234830379486084,
+          "absolute_difference": 4.0531158447265625e-06
+        },
+        {
+          "name": "AF1026.jpg",
+          "pytorch": 2.934663772583008,
+          "onnx": 2.9346625804901123,
+          "absolute_difference": 1.1920928955078125e-06
+        },
+        {
+          "name": "AF1027.jpg",
+          "pytorch": 4.029082298278809,
+          "onnx": 4.029085159301758,
+          "absolute_difference": 2.86102294921875e-06
+        },
+        {
+          "name": "AF1041.jpg",
+          "pytorch": 2.1456644535064697,
+          "onnx": 2.1456642150878906,
+          "absolute_difference": 2.384185791015625e-07
+        },
+        {
+          "name": "AF1044.jpg",
+          "pytorch": 2.3527872562408447,
+          "onnx": 2.3527867794036865,
+          "absolute_difference": 4.76837158203125e-07
+        },
+        {
+          "name": "AF1061.jpg",
+          "pytorch": 2.9486019611358643,
+          "onnx": 2.9486021995544434,
+          "absolute_difference": 2.384185791015625e-07
+        },
+        {
+          "name": "AF1067.jpg",
+          "pytorch": 2.517153024673462,
+          "onnx": 2.517153024673462,
+          "absolute_difference": 0.0
+        },
+        {
+          "name": "AF1081.jpg",
+          "pytorch": 3.485159397125244,
+          "onnx": 3.485161066055298,
+          "absolute_difference": 1.6689300537109375e-06
+        },
+        {
+          "name": "AF1083.jpg",
+          "pytorch": 4.051949501037598,
+          "onnx": 4.051953315734863,
+          "absolute_difference": 3.814697265625e-06
+        },
+        {
+          "name": "AF1091.jpg",
+          "pytorch": 2.737046241760254,
+          "onnx": 2.737046957015991,
+          "absolute_difference": 7.152557373046875e-07
+        },
+        {
+          "name": "AF1107.jpg",
+          "pytorch": 3.3382625579833984,
+          "onnx": 3.3382604122161865,
+          "absolute_difference": 2.1457672119140625e-06
+        },
+        {
+          "name": "AF1110.jpg",
+          "pytorch": 3.6977357864379883,
+          "onnx": 3.697732448577881,
+          "absolute_difference": 3.337860107421875e-06
+        },
+        {
+          "name": "AF1118.jpg",
+          "pytorch": 2.243852138519287,
+          "onnx": 2.2438533306121826,
+          "absolute_difference": 1.1920928955078125e-06
+        },
+        {
+          "name": "AF1129.jpg",
+          "pytorch": 3.777655839920044,
+          "onnx": 3.7776572704315186,
+          "absolute_difference": 1.430511474609375e-06
+        },
+        {
+          "name": "AF1133.jpg",
+          "pytorch": 3.167116641998291,
+          "onnx": 3.167120933532715,
+          "absolute_difference": 4.291534423828125e-06
+        },
+        {
+          "name": "AF1143.jpg",
+          "pytorch": 2.126504421234131,
+          "onnx": 2.1265101432800293,
+          "absolute_difference": 5.7220458984375e-06
+        },
+        {
+          "name": "AF1153.jpg",
+          "pytorch": 2.8374204635620117,
+          "onnx": 2.8374223709106445,
+          "absolute_difference": 1.9073486328125e-06
+        }
+      ],
+      "model_sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4",
+      "checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+      "historical_test_status": "previously_observed_official_fold1_historical_benchmark",
+      "observation_date": "2026-11-13",
+      "duration_scope": "This run includes feature/cache preparation and training-validation; reused raw-data preparation and later export/test are separate.",
+      "original_deployed_model_comparison": {
+        "raw_mae": 0.29849841031161223,
+        "candidate_raw_mae": 0.27616984163160146,
+        "absolute_error_reduction": 0.02232857099300038,
+        "paired_image_ci95": [
+          0.014870543196912419,
+          0.02966028073976013
+        ]
+      },
+      "selection_rule": "Lowest validation MAE within winner recipe; ties use ascending seed. Never reselect using test.",
+      "confirmation_id": "a96e43dac066b358703c535d9dff0a47fdae7937f39e48f6be1866cf0c8fe6f5",
+      "locked_evaluation_id": "2f6d55ddf6f57235ea9882d1b1808e90866bcf2e7c2f1d59ab283adc2cf5b321"
+    },
+    "asset": "beauty_mobilenetv3_small.onnx",
+    "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+    "historical_benchmark_evaluated": true,
+    "new_unseen_test_evaluated": false
+  },
+  "segmentation": {
+    "source": "https://github.com/yakhyo/face-parsing",
+    "download_mirror": "https://huggingface.co/PayamFard123/dermaintel-face-parsing",
+    "source_sha256": "0d9bd318e46987c3bdbfacae9e2c0f461cae1c6ac6ea6d43bbe541a91727e33f",
+    "architecture": "BiSeNet ResNet18, CelebAMask-HQ, 19 labels",
+    "ground_truth_segmentation_accuracy_evaluated": false
+  },
+  "storage": "Self-trained CNN and attribute model use FP32. Parser and FPEM use FP16 weight storage with casts to FP32 CPU operators.",
+  "converted_initializers": {
+    "segmentation": 67
+  },
+  "assets": {
+    "beauty_mobilenetv3_small.onnx": {
+      "bytes": 4018418,
+      "sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4"
+    },
+    "face_attributes.onnx": {
+      "bytes": 43296036,
+      "sha256": "1bf7c6453bec2fb28e0830f3a76dceb9ffd020124f87b28da5355940a7bc6e48"
+    },
+    "face_parsing_mask.onnx": {
+      "bytes": 26624109,
+      "sha256": "413079d905d1f0b690287c47beeabb80c55bf60804c462dd44d8bca7ee048b85"
+    },
+    "fpem_mobile.onnx": {
+      "bytes": 288994459,
+      "sha256": "e19189026ffde139b9966ddb5c99d67872ca54680cc6b889df9df5d6cecad671"
+    },
+    "visible_attributes.onnx": {
+      "bytes": 4020254,
+      "sha256": "533beea26c0b0b0d83ae6f094aa37d72357fe22492ddfdb23ac3b1f591f7be95"
+    },
+    "gender_classifier.onnx": {
+      "bytes": 6085142,
+      "sha256": "7aca5c24f6c324577e16b0d92ae61a8f407fcd7fe66b2babec7c41efd2a31fe7"
+    },
+    "beauty_male.onnx": {
+      "sha256": "1e06c1981dbf37f6040dacd0766dbdf4e8d9bfa09cb404372b632346fd5145c7",
+      "bytes": 4018418
+    },
+    "beauty_female.onnx": {
+      "sha256": "d0ed17ac6c61bea2b53e2d9e81aed3853bcda3a7f0e9f1f1fda612aa0b9c1844",
+      "bytes": 4018418
+    }
+  },
+  "attributes": {
+    "source": "https://github.com/yakhyo/face-attribute",
+    "original_source": "https://github.com/qualcomm/ai-hub-models/tree/main/src/qai_hub_models/models/face_attrib_net",
+    "model_version": "faceattribnet-qualcomm-2025-v1",
+    "license": "BSD-3-Clause",
+    "labels": [
+      "left_eye_open",
+      "right_eye_open",
+      "eyeglasses",
+      "mask",
+      "sunglasses"
+    ],
+    "preprocessing": "RGB 0-1, 128x128 aspect-preserving centered black padding. Android uses bilinear resize.",
+    "independent_accuracy_evaluated": false
+  },
+  "explanations": {
+    "method": "Five semantic-region occlusion experiments, RGB128 replacement",
+    "display": "Original 1-10 score minus occluded 1-10 score",
+    "caveat": "Model sensitivity under synthetic occlusion, not causal inference or an objective beauty standard"
+  },
+  "previous_model_checks": [
+    {
+      "image": "girl.jpg",
+      "torch_native_score": 3.726365089416504,
+      "onnx_full_score": 3.7263622283935547,
+      "android_model_native_score": 3.72234845161438,
+      "torch_onnx_absolute_difference": 2.86102294921875e-06,
+      "compact_score_difference": 0.004013776779174805,
+      "segmentation_pixel_agreement": 0.9999580383300781,
+      "predicted_classes": [
+        0,
+        1,
+        2,
+        4,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17
+      ]
+    },
+    {
+      "image": "guy.jpg",
+      "torch_native_score": 4.484138011932373,
+      "onnx_full_score": 4.484135150909424,
+      "android_model_native_score": 4.497495174407959,
+      "torch_onnx_absolute_difference": 2.86102294921875e-06,
+      "compact_score_difference": 0.013360023498535156,
+      "segmentation_pixel_agreement": 0.9999580383300781,
+      "predicted_classes": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13,
+        14,
+        17
+      ]
+    }
+  ],
+  "visibleMouthActions": {
+    "model_version": "mediapipe-visible-mouth-actions-v1",
+    "source": "https://ai.google.dev/edge/mediapipe/solutions/vision/face_landmarker",
+    "asset": "face_landmarker.task",
+    "asset_sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "outputs": [
+      "mouthSmileLeft",
+      "mouthSmileRight",
+      "jawOpen"
+    ],
+    "smile_coefficient": "(mouthSmileLeft + mouthSmileRight) / 2",
+    "smile_threshold": 0.5,
+    "mouth_open_threshold": 0.25,
+    "value_type": "visible action intensity coefficients, not calibrated probabilities",
+    "selection": "Largest detected face, same selection rule as the landmark pipeline",
+    "independent_accuracy_evaluated": false,
+    "note": "Describes visible mouth movement only; not an emotion or mental-state inference."
+  },
+  "previous_cnn_models": [
+    {
+      "model_version": "scut-mobilenetv3-small-selftrained-fold1-v1",
+      "model_sha256": "90bfcb80e17f6a93483a1e01e842cf8a496e1d3dd1e690e80e6cdb4797c41292",
+      "evaluation": {
+        "model_version": "scut-mobilenetv3-small-selftrained-fold1-v1",
+        "architecture": "MobileNetV3 Small + LayerNorm + 128-unit regression head",
+        "initialization": "torchvision ImageNet1K V1 only; never initialized with an SCUT-trained beauty checkpoint",
+        "training": "Freeze features 0-8; train regression head, then fine-tune features 9-12 and head; freeze all BatchNorm running statistics",
+        "selected_stage": "late_finetune",
+        "selected_epoch": 16,
+        "seed": 42,
+        "counts": {
+          "train": 3960,
+          "validation": 440,
+          "test": 1100
+        },
+        "target_scale": [
+          1,
+          5
+        ],
+        "selection_metric": "validation MAE on raw predictions",
+        "validation_mae": 0.2843173625794324,
+        "test_raw": {
+          "n": 1100,
+          "mae": 0.29849841031161223,
+          "rmse": 0.39260558537152174,
+          "pearson": 0.8265936659524857
+        },
+        "test_clipped": {
+          "n": 1100,
+          "mae": 0.2976890728690407,
+          "rmse": 0.390472458484039,
+          "pearson": 0.8280182167074351
+        },
+        "constant_train_mean_baseline": {
+          "n": 1100,
+          "mae": 0.5665135083415291,
+          "rmse": 0.6827141659651831,
+          "pearson": null
+        },
+        "groups": {
+          "AF": {
+            "n": 404,
+            "mae": 0.3314035487647104,
+            "rmse": 0.4354625378373161,
+            "pearson": 0.7944317179549933
+          },
+          "AM": {
+            "n": 394,
+            "mae": 0.27114455076643657,
+            "rmse": 0.3606061584660699,
+            "pearson": 0.8282988496742006
+          },
+          "CF": {
+            "n": 171,
+            "mae": 0.29856279649232564,
+            "rmse": 0.38210720638364476,
+            "pearson": 0.8615860955268945
+          },
+          "CM": {
+            "n": 131,
+            "mae": 0.27920630869974616,
+            "rmse": 0.35749328038992456,
+            "pearson": 0.8348528040216256
+          }
+        },
+        "limitation": "SCUT official fold 1, successful detector crops only. Not real-phone end-to-end accuracy. Dataset labels reflect subjective raters. Exact duplicates removed; identity overlap cannot be excluded.",
+        "duration_seconds": 282.60899999999674,
+        "imagenet_checkpoint_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+        "imagenet_checkpoint_url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+        "late_block_weight_change_l2": 1.3009228471966698,
+        "conversion_parity": [
+          {
+            "name": "AF1000.jpg",
+            "pytorch": 3.857804775238037,
+            "onnx": 3.8578100204467773,
+            "absolute_difference": 5.245208740234375e-06
+          },
+          {
+            "name": "AF1002.jpg",
+            "pytorch": 3.077873706817627,
+            "onnx": 3.0778748989105225,
+            "absolute_difference": 1.1920928955078125e-06
+          },
+          {
+            "name": "AF1006.jpg",
+            "pytorch": 3.049248695373535,
+            "onnx": 3.0492494106292725,
+            "absolute_difference": 7.152557373046875e-07
+          },
+          {
+            "name": "AF1011.jpg",
+            "pytorch": 3.5359885692596436,
+            "onnx": 3.535989999771118,
+            "absolute_difference": 1.430511474609375e-06
+          },
+          {
+            "name": "AF1013.jpg",
+            "pytorch": 3.2633421421051025,
+            "onnx": 3.2633461952209473,
+            "absolute_difference": 4.0531158447265625e-06
+          },
+          {
+            "name": "AF1020.jpg",
+            "pytorch": 2.274888515472412,
+            "onnx": 2.2748875617980957,
+            "absolute_difference": 9.5367431640625e-07
+          },
+          {
+            "name": "AF1029.jpg",
+            "pytorch": 3.662278175354004,
+            "onnx": 3.6622791290283203,
+            "absolute_difference": 9.5367431640625e-07
+          },
+          {
+            "name": "AF1033.jpg",
+            "pytorch": 2.528327226638794,
+            "onnx": 2.5283281803131104,
+            "absolute_difference": 9.5367431640625e-07
+          },
+          {
+            "name": "AF1034.jpg",
+            "pytorch": 3.1585159301757812,
+            "onnx": 3.158517837524414,
+            "absolute_difference": 1.9073486328125e-06
+          },
+          {
+            "name": "AF1039.jpg",
+            "pytorch": 3.560792922973633,
+            "onnx": 3.560789108276367,
+            "absolute_difference": 3.814697265625e-06
+          },
+          {
+            "name": "AF1040.jpg",
+            "pytorch": 2.0123202800750732,
+            "onnx": 2.0123274326324463,
+            "absolute_difference": 7.152557373046875e-06
+          },
+          {
+            "name": "AF1047.jpg",
+            "pytorch": 3.783494234085083,
+            "onnx": 3.7834954261779785,
+            "absolute_difference": 1.1920928955078125e-06
+          },
+          {
+            "name": "AF105.jpg",
+            "pytorch": 3.609328508377075,
+            "onnx": 3.609330177307129,
+            "absolute_difference": 1.6689300537109375e-06
+          },
+          {
+            "name": "AF1051.jpg",
+            "pytorch": 2.6379799842834473,
+            "onnx": 2.637979745864868,
+            "absolute_difference": 2.384185791015625e-07
+          },
+          {
+            "name": "AF1054.jpg",
+            "pytorch": 4.069007873535156,
+            "onnx": 4.069012641906738,
+            "absolute_difference": 4.76837158203125e-06
+          },
+          {
+            "name": "AF106.jpg",
+            "pytorch": 2.7701847553253174,
+            "onnx": 2.770185947418213,
+            "absolute_difference": 1.1920928955078125e-06
+          },
+          {
+            "name": "AF1063.jpg",
+            "pytorch": 4.280454635620117,
+            "onnx": 4.280455589294434,
+            "absolute_difference": 9.5367431640625e-07
+          },
+          {
+            "name": "AF107.jpg",
+            "pytorch": 2.323237419128418,
+            "onnx": 2.3232383728027344,
+            "absolute_difference": 9.5367431640625e-07
+          },
+          {
+            "name": "AF1072.jpg",
+            "pytorch": 3.6265554428100586,
+            "onnx": 3.626553535461426,
+            "absolute_difference": 1.9073486328125e-06
+          },
+          {
+            "name": "AF108.jpg",
+            "pytorch": 3.0009546279907227,
+            "onnx": 3.0009572505950928,
+            "absolute_difference": 2.6226043701171875e-06
+          }
+        ],
+        "model_sha256": "90bfcb80e17f6a93483a1e01e842cf8a496e1d3dd1e690e80e6cdb4797c41292",
+        "checkpoint_sha256": "11adef96a2e8da3c838f4eb53ab631823b44121d39955c287a1d3336e1939313"
+      }
+    }
+  ],
+  "self_trained_visible_attributes": {
+    "model_version": "celeba-visible-mobilenetv3-head-tail8-seed42-v1",
+    "model_sha256": "533beea26c0b0b0d83ae6f094aa37d72357fe22492ddfdb23ac3b1f591f7be95",
+    "training_by": "This project; ImageNet initialization only; masked independent binary heads then eight late-layer epochs",
+    "dataset": "CelebA official image-level partitions; verified original archive and labels",
+    "development_counts": {
+      "train_original": 20000,
+      "train_detected": 19883,
+      "validation_original": 2000,
+      "validation_detected": 1988
+    },
+    "labels": [
+      "Smiling",
+      "Eyeglasses",
+      "Mouth_Slightly_Open"
+    ],
+    "thresholds": [
+      0.425,
+      0.85,
+      0.475
+    ],
+    "threshold_fit_split": "validation",
+    "score_type": "uncalibrated sigmoid score; not calibrated probability",
+    "metadata_asset": "visible_attributes_model.json",
+    "evaluation_asset": "visible_attributes_evaluation.json",
+    "heldout": {
+      "macro_f1": 0.8973800330943188,
+      "macro_f1_label_count": 3,
+      "per_label": [
+        {
+          "known_available": 1992,
+          "positive_support": 969,
+          "negative_support": 1023,
+          "tp": 869,
+          "fp": 122,
+          "fn": 100,
+          "tn": 901,
+          "precision": 0.8768920282542886,
+          "recall": 0.8968008255933952,
+          "f1": 0.886734693877551,
+          "balanced_accuracy": 0.8887718692971864,
+          "label": "Smiling",
+          "threshold": 0.425,
+          "unknown_labels": 0,
+          "known_total": 2000,
+          "coverage_of_known": 0.996
+        },
+        {
+          "known_available": 1992,
+          "positive_support": 134,
+          "negative_support": 1858,
+          "tp": 119,
+          "fp": 6,
+          "fn": 15,
+          "tn": 1852,
+          "precision": 0.952,
+          "recall": 0.8880597014925373,
+          "f1": 0.918918918918919,
+          "balanced_accuracy": 0.9424152113490674,
+          "label": "Eyeglasses",
+          "threshold": 0.85,
+          "unknown_labels": 0,
+          "known_total": 2000,
+          "coverage_of_known": 0.996
+        },
+        {
+          "known_available": 1992,
+          "positive_support": 953,
+          "negative_support": 1039,
+          "tp": 820,
+          "fp": 77,
+          "fn": 133,
+          "tn": 962,
+          "precision": 0.9141583054626533,
+          "recall": 0.8604407135362014,
+          "f1": 0.8864864864864865,
+          "balanced_accuracy": 0.8931654963253673,
+          "label": "Mouth_Slightly_Open",
+          "threshold": 0.475,
+          "unknown_labels": 0,
+          "known_total": 2000,
+          "coverage_of_known": 0.996
+        }
+      ],
+      "coverage": {
+        "images_total": 2000,
+        "images_with_output": 1992,
+        "face_detection_output_rate": 0.996
+      },
+      "score_type": "uncalibrated independent sigmoid scores; not calibrated probabilities"
+    },
+    "identity_independent_verified": false,
+    "real_phone_end_to_end_evaluated": false,
+    "existing_models_retained": "FaceAttribNet five labels and MediaPipe visible mouth actions remain separate"
+  },
+  "self_trained_gender": {
+    "model_version": "celeba-gender-mobilenetv3-small-seed42-v1",
+    "model_sha256": "7aca5c24f6c324577e16b0d92ae61a8f407fcd7fe66b2babec7c41efd2a31fe7",
+    "training_by": "This project; torchvision ImageNet1K V1 initialization only",
+    "dataset": "CelebA official image-level partitions; Male attribute (-1 -> 0 female, +1 -> 1 male)",
+    "task": "binary classification, single logit with sigmoid output",
+    "development_counts": {
+      "train_detected": 19883,
+      "train_male": 8300,
+      "train_female": 11583,
+      "validation_detected": 1988
+    },
+    "threshold": 0.6,
+    "threshold_fit_split": "validation",
+    "score_type": "Platt-calibrated probability fitted on the validation split; still not a population-calibrated probability",
+    "metadata_asset": "gender_model.json",
+    "heldout": {
+      "accuracy": 0.9754016064257028,
+      "balanced_accuracy": 0.9736475171012637,
+      "sensitivity_male": 0.9648682559598495,
+      "specificity_female": 0.9824267782426779,
+      "precision": 0.9734177215189873,
+      "f1": 0.9691241335853813,
+      "auroc": 0.996678968726868,
+      "brier": 0.01852729109447553,
+      "log_loss": 0.06955980377393953,
+      "tp": 769,
+      "tn": 1174,
+      "fp": 21,
+      "fn": 28,
+      "support": 1992,
+      "coverage": {
+        "rows": 2000,
+        "outputs": 1992,
+        "rate": 0.996
+      },
+      "score_type": "Platt-calibrated probability fitted on validation split"
+    },
+    "identity_independent_verified": false,
+    "real_phone_end_to_end_evaluated": false,
+    "usage_policy": "模型给出参考判断，不自动决定打分参照组；参照组仍由用户确认。",
+    "note": "CelebA Male 是二元标注，不覆盖非二元性别；不得用于对个人性别的判定或展示。",
+    "calibration": {
+      "method": "Platt scaling (1-D logistic regression)",
+      "a": 0.9155694626197927,
+      "b": -0.31950489935860277,
+      "fit_split": "validation",
+      "formula": "p = sigmoid(a*logit + b)"
+    },
+    "validation_calibration": {
+      "raw_brier": 0.011783890042631329,
+      "raw_log_loss": 0.043910234668933804,
+      "calibrated_brier": 0.011350123276602087,
+      "calibrated_log_loss": 0.042858940034006955
+    }
+  },
+  "score_profiles": {
+    "general": {
+      "architecture": "MobileNetV3 Small + LayerNorm + 128-unit regression head",
+      "training_by": "This project",
+      "model_version": "scut-mobilenetv3-small-aug-r4-seed2026-v2",
+      "initialization": "torchvision ImageNet1K V1 only; never initialized with an SCUT-trained beauty checkpoint",
+      "training": "ImageNet only; freeze features 0-8; MSE head then features 9-12; two fixed mild training views; validation LR schedule; frozen BatchNorm statistics",
+      "dataset": "SCUT-FBP5500, official fold 1",
+      "dataset_mirror": "https://huggingface.co/datasets/MnLgt/scut-fbp5500",
+      "native_scale": [
+        1,
+        5
+      ],
+      "display_scale": [
+        1,
+        10
+      ],
+      "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+      "held_out_benchmark_evaluated": true,
+      "real_phone_end_to_end_evaluated": false,
+      "evaluation": {
+        "model_version": "scut-mobilenetv3-small-aug-r4-seed2026-v2",
+        "architecture": "MobileNetV3 Small + LayerNorm + 128-unit regression head",
+        "initialization": "torchvision ImageNet1K V1 only; never initialized with an SCUT-trained beauty checkpoint",
+        "training": "ImageNet only; freeze features 0-8; MSE head then features 9-12; two fixed mild training views; validation LR schedule; frozen BatchNorm statistics",
+        "selected_stage": "late_finetune",
+        "selected_epoch": 27,
+        "seed": 2026,
+        "counts": {
+          "train": 3960,
+          "validation": 440,
+          "test": 1100
+        },
+        "target_scale": [
+          1,
+          5
+        ],
+        "selection_metric": "validation MAE on raw predictions",
+        "validation_mae": 0.2713126296346838,
+        "test_raw": {
+          "n": 1100,
+          "mae": 0.27616984163160146,
+          "rmse": 0.3631751804811043,
+          "pearson": 0.8477707772756373,
+          "spearman": 0.8467272672229599
+        },
+        "test_clipped": {
+          "n": 1100,
+          "mae": 0.27602635829627986,
+          "rmse": 0.3627882240366097,
+          "pearson": 0.8480783073696386,
+          "spearman": 0.8467272672229599
+        },
+        "constant_train_mean_baseline": {
+          "n": 1100,
+          "mae": 0.5665135083415291,
+          "rmse": 0.6827141659651831,
+          "pearson": null
+        },
+        "groups": {
+          "AF": {
+            "n": 404,
+            "mae": 0.3044376037571973,
+            "rmse": 0.39775689828737937,
+            "pearson": 0.8179379903487288
+          },
+          "AM": {
+            "n": 394,
+            "mae": 0.24991029955901714,
+            "rmse": 0.33598962251909614,
+            "pearson": 0.8510413662107771
+          },
+          "CF": {
+            "n": 171,
+            "mae": 0.28095142288694325,
+            "rmse": 0.35414956548230664,
+            "pearson": 0.8789692959117472
+          },
+          "CM": {
+            "n": 131,
+            "mae": 0.26173040104529693,
+            "rmse": 0.34111790621259613,
+            "pearson": 0.8463198568876088
+          }
+        },
+        "limitation": "Previously observed official SCUT fold1 benchmark; image-level identity overlap cannot be ruled out; subjective rater labels; not real-phone end-to-end accuracy.",
+        "duration_seconds": 459.7820000000065,
+        "imagenet_checkpoint_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+        "imagenet_checkpoint_url": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+        "late_block_weight_change_l2": 1.398276543517536,
+        "conversion_parity": [
+          {
+            "name": "AF1004.jpg",
+            "pytorch": 3.6048169136047363,
+            "onnx": 3.604818820953369,
+            "absolute_difference": 1.9073486328125e-06
+          },
+          {
+            "name": "AF101.jpg",
+            "pytorch": 2.5257344245910645,
+            "onnx": 2.5257351398468018,
+            "absolute_difference": 7.152557373046875e-07
+          },
+          {
+            "name": "AF1014.jpg",
+            "pytorch": 3.9694418907165527,
+            "onnx": 3.9694466590881348,
+            "absolute_difference": 4.76837158203125e-06
+          },
+          {
+            "name": "AF1024.jpg",
+            "pytorch": 3.5234789848327637,
+            "onnx": 3.5234830379486084,
+            "absolute_difference": 4.0531158447265625e-06
+          },
+          {
+            "name": "AF1026.jpg",
+            "pytorch": 2.934663772583008,
+            "onnx": 2.9346625804901123,
+            "absolute_difference": 1.1920928955078125e-06
+          },
+          {
+            "name": "AF1027.jpg",
+            "pytorch": 4.029082298278809,
+            "onnx": 4.029085159301758,
+            "absolute_difference": 2.86102294921875e-06
+          },
+          {
+            "name": "AF1041.jpg",
+            "pytorch": 2.1456644535064697,
+            "onnx": 2.1456642150878906,
+            "absolute_difference": 2.384185791015625e-07
+          },
+          {
+            "name": "AF1044.jpg",
+            "pytorch": 2.3527872562408447,
+            "onnx": 2.3527867794036865,
+            "absolute_difference": 4.76837158203125e-07
+          },
+          {
+            "name": "AF1061.jpg",
+            "pytorch": 2.9486019611358643,
+            "onnx": 2.9486021995544434,
+            "absolute_difference": 2.384185791015625e-07
+          },
+          {
+            "name": "AF1067.jpg",
+            "pytorch": 2.517153024673462,
+            "onnx": 2.517153024673462,
+            "absolute_difference": 0.0
+          },
+          {
+            "name": "AF1081.jpg",
+            "pytorch": 3.485159397125244,
+            "onnx": 3.485161066055298,
+            "absolute_difference": 1.6689300537109375e-06
+          },
+          {
+            "name": "AF1083.jpg",
+            "pytorch": 4.051949501037598,
+            "onnx": 4.051953315734863,
+            "absolute_difference": 3.814697265625e-06
+          },
+          {
+            "name": "AF1091.jpg",
+            "pytorch": 2.737046241760254,
+            "onnx": 2.737046957015991,
+            "absolute_difference": 7.152557373046875e-07
+          },
+          {
+            "name": "AF1107.jpg",
+            "pytorch": 3.3382625579833984,
+            "onnx": 3.3382604122161865,
+            "absolute_difference": 2.1457672119140625e-06
+          },
+          {
+            "name": "AF1110.jpg",
+            "pytorch": 3.6977357864379883,
+            "onnx": 3.697732448577881,
+            "absolute_difference": 3.337860107421875e-06
+          },
+          {
+            "name": "AF1118.jpg",
+            "pytorch": 2.243852138519287,
+            "onnx": 2.2438533306121826,
+            "absolute_difference": 1.1920928955078125e-06
+          },
+          {
+            "name": "AF1129.jpg",
+            "pytorch": 3.777655839920044,
+            "onnx": 3.7776572704315186,
+            "absolute_difference": 1.430511474609375e-06
+          },
+          {
+            "name": "AF1133.jpg",
+            "pytorch": 3.167116641998291,
+            "onnx": 3.167120933532715,
+            "absolute_difference": 4.291534423828125e-06
+          },
+          {
+            "name": "AF1143.jpg",
+            "pytorch": 2.126504421234131,
+            "onnx": 2.1265101432800293,
+            "absolute_difference": 5.7220458984375e-06
+          },
+          {
+            "name": "AF1153.jpg",
+            "pytorch": 2.8374204635620117,
+            "onnx": 2.8374223709106445,
+            "absolute_difference": 1.9073486328125e-06
+          }
+        ],
+        "model_sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4",
+        "checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+        "historical_test_status": "previously_observed_official_fold1_historical_benchmark",
+        "observation_date": "2026-11-13",
+        "duration_scope": "This run includes feature/cache preparation and training-validation; reused raw-data preparation and later export/test are separate.",
+        "original_deployed_model_comparison": {
+          "raw_mae": 0.29849841031161223,
+          "candidate_raw_mae": 0.27616984163160146,
+          "absolute_error_reduction": 0.02232857099300038,
+          "paired_image_ci95": [
+            0.014870543196912419,
+            0.02966028073976013
+          ]
+        },
+        "selection_rule": "Lowest validation MAE within winner recipe; ties use ascending seed. Never reselect using test.",
+        "confirmation_id": "a96e43dac066b358703c535d9dff0a47fdae7937f39e48f6be1866cf0c8fe6f5",
+        "locked_evaluation_id": "2f6d55ddf6f57235ea9882d1b1808e90866bcf2e7c2f1d59ab283adc2cf5b321"
+      },
+      "asset": "beauty_mobilenetv3_small.onnx",
+      "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+      "historical_benchmark_evaluated": true,
+      "new_unseen_test_evaluated": false,
+      "file": "beauty_mobilenetv3_small.onnx",
+      "sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4",
+      "profile": "general",
+      "label": "通用模型（推荐）",
+      "experimental": false,
+      "notice": "保留原已验证通用模型；男女专用档是独立训练的实验模型，尚未证实更准。"
+    },
+    "male": {
+      "file": "beauty_male.onnx",
+      "sha256": "1e06c1981dbf37f6040dacd0766dbdf4e8d9bfa09cb404372b632346fd5145c7",
+      "bytes": 4018418,
+      "model_version": "scut-mobilenetv3-small-r4-head-male-seed20261115-v1",
+      "profile": "male",
+      "profile_selection": "manual_by_user_not_inferred_from_photo",
+      "counts": {
+        "train": 2035,
+        "validation": 190,
+        "test": 525
+      },
+      "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+      "input": {
+        "name": "input",
+        "shape": [
+          "batch",
+          3,
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "dtype": "float32",
+        "color": "RGB"
+      },
+      "output": {
+        "name": "score",
+        "shape": [
+          "batch",
+          1
+        ],
+        "scale": [
+          1,
+          5
+        ]
+      },
+      "normalization": {
+        "mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "std": [
+          0.229,
+          0.224,
+          0.225
+        ]
+      },
+      "preprocessing": "Unchanged general R4 faceCrop v1, RGB224, ImageNet normalization; no new alignment or resizing algorithm.",
+      "native_scale": [
+        1,
+        5
+      ],
+      "display_scale": [
+        1,
+        10
+      ],
+      "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+      "base_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+      "checkpoint_sha256": "74c02ec0dfce07a47cc554714264bbb16dfdc972155248542862d0e6be3c17c2",
+      "training": "Two-group head-only adaptation of frozen selected R4 backbone; AdamW lr1e-4, batch64, validation raw MAE early stopping.",
+      "validation": {
+        "n": 190,
+        "mae": 0.22882074243143985,
+        "rmse": 0.3003339847635479,
+        "pearson": 0.8875928227564853,
+        "spearman": 0.8268413224005391
+      },
+      "general_validation": {
+        "n": 190,
+        "mae": 0.22911018258646915,
+        "rmse": 0.30041543799489423,
+        "pearson": 0.886337725852777,
+        "spearman": 0.8231475551064066
+      },
+      "validation_recommendation": "experimental_profile_gate_not_met_keep_general_default",
+      "deployment_decision_made_before_test": true,
+      "historical_benchmark_evaluated": true,
+      "new_unseen_test_evaluated": false,
+      "limitation": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+      "evaluation": {
+        "profile": "male",
+        "test_scope": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+        "backend": "ONNX Runtime CPU, exactly exported models",
+        "counts": {
+          "train": 2035,
+          "validation": 190,
+          "test": 525
+        },
+        "general": {
+          "n": 525,
+          "mae": 0.2528596963108317,
+          "rmse": 0.33727655238919185,
+          "pearson": 0.8517307851925293,
+          "spearman": 0.829650590371018
+        },
+        "specialized": {
+          "n": 525,
+          "mae": 0.2511946217673165,
+          "rmse": 0.336356825717129,
+          "pearson": 0.8541894524075588,
+          "spearman": 0.8320634202336645
+        },
+        "paired_mae_improvement": 0.0016650745435151596,
+        "paired_image_bootstrap_95ci": [
+          -0.0011782269918946765,
+          0.004481843596326917
+        ],
+        "bootstrap_resamples": 5000,
+        "bootstrap_seed": 20261115,
+        "validation_recommendation_frozen": "experimental_profile_gate_not_met_keep_general_default",
+        "test_used_to_select_weights_or_deployment_gate": false,
+        "limitation": "Images, not identities, are bootstrap units; fixed-model interval does not cover training random variation or real-phone domain shift."
+      },
+      "label": "男性专用实验模型",
+      "experimental": true,
+      "notice": "专用实验模型：本次验证改善未达预登记门槛，尚未证实比通用模型更准。参照档位由你手动选择。"
+    },
+    "female": {
+      "file": "beauty_female.onnx",
+      "sha256": "d0ed17ac6c61bea2b53e2d9e81aed3853bcda3a7f0e9f1f1fda612aa0b9c1844",
+      "bytes": 4018418,
+      "model_version": "scut-mobilenetv3-small-r4-head-female-seed20261115-v1",
+      "profile": "female",
+      "profile_selection": "manual_by_user_not_inferred_from_photo",
+      "counts": {
+        "train": 1925,
+        "validation": 250,
+        "test": 575
+      },
+      "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+      "input": {
+        "name": "input",
+        "shape": [
+          "batch",
+          3,
+          224,
+          224
+        ],
+        "layout": "NCHW",
+        "dtype": "float32",
+        "color": "RGB"
+      },
+      "output": {
+        "name": "score",
+        "shape": [
+          "batch",
+          1
+        ],
+        "scale": [
+          1,
+          5
+        ]
+      },
+      "normalization": {
+        "mean": [
+          0.485,
+          0.456,
+          0.406
+        ],
+        "std": [
+          0.229,
+          0.224,
+          0.225
+        ]
+      },
+      "preprocessing": "Unchanged general R4 faceCrop v1, RGB224, ImageNet normalization; no new alignment or resizing algorithm.",
+      "native_scale": [
+        1,
+        5
+      ],
+      "display_scale": [
+        1,
+        10
+      ],
+      "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+      "base_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+      "checkpoint_sha256": "4c3365116d753768e867d66a4b7746168e0853efb1d373f0fb60d57ff295b4c3",
+      "training": "Two-group head-only adaptation of frozen selected R4 backbone; AdamW lr1e-4, batch64, validation raw MAE early stopping.",
+      "validation": {
+        "n": 250,
+        "mae": 0.30032588958740236,
+        "rmse": 0.39283984423310775,
+        "pearson": 0.8337075837334973,
+        "spearman": 0.8330343656901835
+      },
+      "general_validation": {
+        "n": 250,
+        "mae": 0.3033864893913269,
+        "rmse": 0.39666299309397,
+        "pearson": 0.8296940148694457,
+        "spearman": 0.8284970159752093
+      },
+      "validation_recommendation": "experimental_profile_gate_not_met_keep_general_default",
+      "deployment_decision_made_before_test": true,
+      "historical_benchmark_evaluated": true,
+      "new_unseen_test_evaluated": false,
+      "limitation": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+      "evaluation": {
+        "profile": "female",
+        "test_scope": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+        "backend": "ONNX Runtime CPU, exactly exported models",
+        "counts": {
+          "train": 1925,
+          "validation": 250,
+          "test": 575
+        },
+        "general": {
+          "n": 575,
+          "mae": 0.2974530177940435,
+          "rmse": 0.38530441871933996,
+          "pearson": 0.8401177201038386,
+          "spearman": 0.8497944584954474
+        },
+        "specialized": {
+          "n": 575,
+          "mae": 0.29753763966734514,
+          "rmse": 0.3874087392711619,
+          "pearson": 0.8388442571768762,
+          "spearman": 0.8498897761935159
+        },
+        "paired_mae_improvement": -8.462187330162955e-05,
+        "paired_image_bootstrap_95ci": [
+          -0.0038785264476636815,
+          0.0035765886539804166
+        ],
+        "bootstrap_resamples": 5000,
+        "bootstrap_seed": 20261115,
+        "validation_recommendation_frozen": "experimental_profile_gate_not_met_keep_general_default",
+        "test_used_to_select_weights_or_deployment_gate": false,
+        "limitation": "Images, not identities, are bootstrap units; fixed-model interval does not cover training random variation or real-phone domain shift."
+      },
+      "label": "女性专用实验模型",
+      "experimental": true,
+      "notice": "专用实验模型：本次验证改善未达预登记门槛，尚未证实比通用模型更准。参照档位由你手动选择。"
+    }
+  },
+  "score_profile_selection": "manual_by_user; general recommended default; no photo identity selection"
+}

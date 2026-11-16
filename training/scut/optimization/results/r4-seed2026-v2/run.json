@@ -1,0 +1,63 @@
+{
+  "format": "facescore-optimization-v1",
+  "created_utc": "2026-11-13T12:06:27.609758+00:00",
+  "fingerprint": "3525941feb8e122152e37c3eeb796bbad67525f1a38b7ac6c63e97d3646a3f2f",
+  "config": {
+    "format": "facescore-optimization-v1",
+    "id": "R4",
+    "seed": 2026,
+    "plan_sha256": "d84145f5e5868952904937950bf8409711c9b04cd4cc4385718e5321cf86b467",
+    "architecture": "MobileNetV3Small-LayerNorm128",
+    "head_epochs": 100,
+    "head_patience": 16,
+    "batch_size": 64,
+    "dropout": 0.2,
+    "weight_decay": 0.01,
+    "head_lr": 0.0008,
+    "tail_head_lr": 0.00012,
+    "tail_backbone_lr": 3e-05,
+    "tail_epochs": 60,
+    "tail_patience": 8,
+    "min_improvement": 0.0001,
+    "head_min_improvement": 1e-05,
+    "tail_min_improvement": 0.0001,
+    "scheduler": true,
+    "scheduler_factor": 0.5,
+    "scheduler_patience": 3,
+    "scheduler_min_head_lr": 1e-06,
+    "scheduler_min_backbone_lr": 2.5e-07,
+    "loss": "mse",
+    "huber_delta": 0.3,
+    "preprocess": "legacy_facecrop_v1",
+    "augmentation": "two_fixed_mild_views_v1",
+    "augmentation_stage": "tail_only",
+    "frozen_prefix_modules": 9,
+    "smoke": false,
+    "single_run_cap_hours": 3
+  },
+  "development_manifest_sha256": "a47476b5237d7f5ba62ba66c595c735b11b2fab251ea2d887a48093a0194c21f",
+  "selected_rows_sha256": "56726b471d07afd7f22b754e53bf80b887c3ce363e597258b6bfbd5c08c1e6e0",
+  "data_dir": "D:\\chatgpt\\2026-11-06\\FaceScoreLab高级版训练\\dataset",
+  "development_manifest": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\development_manifest.csv",
+  "source_code_sha256": "f44c1300e942ef96d62ab5aa9de35822330aa3d601d1db03df78d4f324958d60",
+  "counts": {
+    "train": 3960,
+    "validation": 440
+  },
+  "seed": 2026,
+  "threads": 4,
+  "max_hours": 3.0,
+  "test_targets_opened": false,
+  "pretrained_weights": "https://download.pytorch.org/models/mobilenet_v3_small-047dcff4.pth",
+  "pretrained_prefix_sha256": "de5c670cfc16a97d1a42af71ecb957c297bb9c4529fc4e560e0aeb9614d5f16e",
+  "effective_min_improvement": {
+    "head": 1e-05,
+    "tail": 0.0001
+  },
+  "r0_alignment_note": "Original sample order and RNG initialization retained. Development-only forward batches can introduce floating point differences from historical all-sample caches.",
+  "timings": {
+    "preparation_this_process_seconds": 79.32799999999406,
+    "previous_process_seconds": 0.0
+  },
+  "late_block_weight_change_l2": 1.398276543517536
+}

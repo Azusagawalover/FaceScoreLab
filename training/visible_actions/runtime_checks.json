@@ -1,0 +1,160 @@
+[
+  {
+    "name": "升级保留所有原有历史记录",
+    "passed": true,
+    "detail": 7
+  },
+  {
+    "name": "自训练颜值回归正常",
+    "passed": true,
+    "detail": 6.663041770458221
+  },
+  {
+    "name": "19类五官分割正常",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "五项可见属性正常",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "真实微笑模型返回动作系数",
+    "passed": true,
+    "detail": {
+      "model": "mediapipe-visible-mouth-actions-v1",
+      "available": true,
+      "faceCount": 1,
+      "selectedFaceIndex": 0,
+      "valueType": "visible_action_coefficient_not_probability",
+      "smileThreshold": 0.5,
+      "mouthOpenThreshold": 0.25,
+      "mouthSmileLeft": 0.8752203583717346,
+      "mouthSmileRight": 0.7970200777053833,
+      "smileCoefficient": 0.836120218038559,
+      "smileDetected": true,
+      "jawOpenCoefficient": 0.08012109249830246,
+      "mouthOpenDetected": false,
+      "method": "Mean of mouthSmileLeft and mouthSmileRight; jawOpen is separate. Fixed demonstration thresholds, not calibrated probabilities or emotion labels."
+    }
+  },
+  {
+    "name": "微笑公式与独立下颌输出正确",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "评分区域解释继续可用",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "微笑与张嘴结果出现在界面",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "微笑和张嘴系数随历史保存",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "重启后历史详情保留微笑结果",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "系统相册加载戴眼镜照片后可分析",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "戴眼镜对照图检出眼镜",
+    "passed": true,
+    "detail": 0.9628435373306274
+  },
+  {
+    "name": "无明显嘴角上扬对照图未检出微笑",
+    "passed": true,
+    "detail": {
+      "model": "mediapipe-visible-mouth-actions-v1",
+      "available": true,
+      "faceCount": 1,
+      "selectedFaceIndex": 0,
+      "valueType": "visible_action_coefficient_not_probability",
+      "smileThreshold": 0.5,
+      "mouthOpenThreshold": 0.25,
+      "mouthSmileLeft": 0.002781902439892292,
+      "mouthSmileRight": 0.0015626894310116768,
+      "smileCoefficient": 0.0021722959354519844,
+      "smileDetected": false,
+      "jawOpenCoefficient": 0.0016508507542312145,
+      "mouthOpenDetected": false,
+      "method": "Mean of mouthSmileLeft and mouthSmileRight; jawOpen is separate. Fixed demonstration thresholds, not calibrated probabilities or emotion labels."
+    }
+  },
+  {
+    "name": "保留FPEM并且不丢失新增动作数据",
+    "passed": true,
+    "detail": 2.3732900619506836
+  },
+  {
+    "name": "屏幕旋转恢复后动作结果可见且有效",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "嘴部张开对照图可分析",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "嘴部张开对照图返回张嘴动作",
+    "passed": true,
+    "detail": {
+      "model": "mediapipe-visible-mouth-actions-v1",
+      "available": true,
+      "faceCount": 1,
+      "selectedFaceIndex": 0,
+      "valueType": "visible_action_coefficient_not_probability",
+      "smileThreshold": 0.5,
+      "mouthOpenThreshold": 0.25,
+      "mouthSmileLeft": 0.017526067793369293,
+      "mouthSmileRight": 0.007340352050960064,
+      "smileCoefficient": 0.012433209922164679,
+      "smileDetected": false,
+      "jawOpenCoefficient": 0.5303553342819214,
+      "mouthOpenDetected": true,
+      "method": "Mean of mouthSmileLeft and mouthSmileRight; jawOpen is separate. Fixed demonstration thresholds, not calibrated probabilities or emotion labels."
+    }
+  },
+  {
+    "name": "更换照片后重新计算动作系数",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "闭眼对照图可分析",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "闭眼对照图两侧睁眼输出均低于阈值",
+    "passed": true,
+    "detail": [
+      0.014116207137703896,
+      0.11748705804347992
+    ]
+  },
+  {
+    "name": "闭眼且无明显嘴角上扬的照片未检出微笑",
+    "passed": true,
+    "detail": null
+  },
+  {
+    "name": "新增功能和回归检查未发现应用崩溃",
+    "passed": true,
+    "detail": null
+  }
+]

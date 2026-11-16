@@ -1,0 +1,29 @@
+FaceScoreLab 源码说明
+版本：3.4.1（versionCode 16）
+
+本目录是可直接导入Android Studio的工程源码，包含全部9个App运行模型。正常构建不需要配套APK、Python环境或重新下载模型。
+
+构建条件
+- Android SDK 34，SDK位置由Android Studio在本机配置。
+- JDK 17或21；Gradle JDK与Java源码级别是不同配置，源码级别保持Java 8。
+- Gradle 8.7、Android Gradle Plugin 8.5.1。
+- 首次同步需要下载依赖；离线构建以本机缓存完整为前提。
+
+项目根目录执行：
+.\gradlew.bat :app:assembleDebug :app:lintDebug
+.\gradlew.bat :app:assembleDebugAndroidTest
+
+运行模型位于app/src/main/assets；模型身份及评价信息由随附JSON记录。可选完整性检查（需Python 3.11或以上）：
+python restore_bundled_models.py --check
+此命令独立检查本地9个模型，不需要APK。缺失资产时可用--apk指定与清单匹配的APK验证或恢复；不会覆盖不同的现有文件。恢复工具不属于Android正常构建的前置步骤。
+
+主要内容
+app：Android应用及设备契约。
+training：训练、导出、评价程序与保留的实验记录。Android运行不依赖这些Python程序。
+docs：方法说明、文献引用、示例照片署名及历史验证记录。
+third_party：上游依赖代码与许可。
+
+升级时使用相同应用包名和签名的覆盖安装可保留已有历史。不要为升级而卸载应用或清除其数据。新源码自行构建时应注意签名与既有安装包是否一致。
+
+说明范围
+历史检查文件均按其versionCode解释；code8和code11的验收不等于code16全量重测。模型来源、数据许可和评价边界见项目README与“第三方来源与实验边界.txt”。不以代码构建成功或模拟器演示代替真机及独立精度评价。

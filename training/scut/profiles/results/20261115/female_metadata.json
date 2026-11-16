@@ -1,0 +1,115 @@
+{
+  "file": "beauty_female.onnx",
+  "sha256": "d0ed17ac6c61bea2b53e2d9e81aed3853bcda3a7f0e9f1f1fda612aa0b9c1844",
+  "bytes": 4018418,
+  "model_version": "scut-mobilenetv3-small-r4-head-female-seed20261115-v1",
+  "profile": "female",
+  "profile_selection": "manual_by_user_not_inferred_from_photo",
+  "counts": {
+    "train": 1925,
+    "validation": 250,
+    "test": 575
+  },
+  "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+  "input": {
+    "name": "input",
+    "shape": [
+      "batch",
+      3,
+      224,
+      224
+    ],
+    "layout": "NCHW",
+    "dtype": "float32",
+    "color": "RGB"
+  },
+  "output": {
+    "name": "score",
+    "shape": [
+      "batch",
+      1
+    ],
+    "scale": [
+      1,
+      5
+    ]
+  },
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "preprocessing": "Unchanged general R4 faceCrop v1, RGB224, ImageNet normalization; no new alignment or resizing algorithm.",
+  "native_scale": [
+    1,
+    5
+  ],
+  "display_scale": [
+    1,
+    10
+  ],
+  "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+  "base_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+  "checkpoint_sha256": "4c3365116d753768e867d66a4b7746168e0853efb1d373f0fb60d57ff295b4c3",
+  "training": "Two-group head-only adaptation of frozen selected R4 backbone; AdamW lr1e-4, batch64, validation raw MAE early stopping.",
+  "validation": {
+    "n": 250,
+    "mae": 0.30032588958740236,
+    "rmse": 0.39283984423310775,
+    "pearson": 0.8337075837334973,
+    "spearman": 0.8330343656901835
+  },
+  "general_validation": {
+    "n": 250,
+    "mae": 0.3033864893913269,
+    "rmse": 0.39666299309397,
+    "pearson": 0.8296940148694457,
+    "spearman": 0.8284970159752093
+  },
+  "validation_recommendation": "experimental_profile_gate_not_met_keep_general_default",
+  "deployment_decision_made_before_test": true,
+  "historical_benchmark_evaluated": true,
+  "new_unseen_test_evaluated": false,
+  "limitation": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+  "evaluation": {
+    "profile": "female",
+    "test_scope": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+    "backend": "ONNX Runtime CPU, exactly exported models",
+    "counts": {
+      "train": 1925,
+      "validation": 250,
+      "test": 575
+    },
+    "general": {
+      "n": 575,
+      "mae": 0.2974530177940435,
+      "rmse": 0.38530441871933996,
+      "pearson": 0.8401177201038386,
+      "spearman": 0.8497944584954474
+    },
+    "specialized": {
+      "n": 575,
+      "mae": 0.29753763966734514,
+      "rmse": 0.3874087392711619,
+      "pearson": 0.8388442571768762,
+      "spearman": 0.8498897761935159
+    },
+    "paired_mae_improvement": -8.462187330162955e-05,
+    "paired_image_bootstrap_95ci": [
+      -0.0038785264476636815,
+      0.0035765886539804166
+    ],
+    "bootstrap_resamples": 5000,
+    "bootstrap_seed": 20261115,
+    "validation_recommendation_frozen": "experimental_profile_gate_not_met_keep_general_default",
+    "test_used_to_select_weights_or_deployment_gate": false,
+    "limitation": "Images, not identities, are bootstrap units; fixed-model interval does not cover training random variation or real-phone domain shift."
+  }
+}

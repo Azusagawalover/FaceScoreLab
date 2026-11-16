@@ -1,0 +1,106 @@
+{
+  "format": "facescore-manual-score-profiles-v1",
+  "registered_at_utc": "2026-11-15T14:41:14.226509+00:00",
+  "purpose": "Two dataset-group scoring regressors selected manually; no photo identity classifier.",
+  "group_definition": {
+    "male": [
+      "AM",
+      "CM"
+    ],
+    "female": [
+      "AF",
+      "CF"
+    ]
+  },
+  "counts": {
+    "male": {
+      "train": 2035,
+      "validation": 190,
+      "test": 525
+    },
+    "female": {
+      "train": 1925,
+      "validation": 250,
+      "test": 575
+    }
+  },
+  "base_checkpoint": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\runs\\R4-seed2026\\best.pt",
+  "base_checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+  "base_model_onnx_sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4",
+  "warmstart_provenance": "R4 seed2026 gradients used original train only; original validation selected the checkpoint. Historical test was subsequently observed but never used for gradient updates.",
+  "base_metrics_path": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\runs\\R4-seed2026\\metrics.json",
+  "base_checkpoint_test_evaluated_flag": false,
+  "development_manifest": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\development_manifest.csv",
+  "development_manifest_sha256": "a47476b5237d7f5ba62ba66c595c735b11b2fab251ea2d887a48093a0194c21f",
+  "full_split_manifest_sha256": "4612c56d8dd00ba2b16326f1b862f50eacde17a5a290d4632d9fbb1841b4f6c3",
+  "base_runner_sha256": "f44c1300e942ef96d62ab5aa9de35822330aa3d601d1db03df78d4f324958d60",
+  "this_runner_sha256": "5f6c1c8b8ac38373583d806a0e7d648b046192f22c305b5db9f15cc49cb0b5c5",
+  "configuration": {
+    "seed": 20261115,
+    "backbone": "fully frozen selected R4 backbone including BN statistics",
+    "head": "warmstarted LayerNorm576 / Linear128 / Hardswish / Dropout0.2 / Linear1",
+    "target_mean": "unchanged general-model target_mean buffer",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "batch_size": 64,
+    "maximum_epochs": 60,
+    "early_stopping_patience": 10,
+    "minimum_validation_mae_improvement": 1e-05,
+    "loss": "MSE",
+    "augmentation": "none; unchanged prepared224 inputs",
+    "selection": "lowest group validation raw MAE among actual trained epochs >=1"
+  },
+  "validation_deployment_gate": {
+    "minimum_improvement_over_general": 0.005,
+    "test_metrics_do_not_change_recommendation": true
+  },
+  "preprocess_version": "landmark478-crop145-up006-rgb-imagenet-bilinear224-v1",
+  "original_runner_preprocess_version": "scut-rgb224-imagenet-v2",
+  "normalization": {
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "input": {
+    "name": "input",
+    "shape": [
+      "batch",
+      3,
+      224,
+      224
+    ],
+    "layout": "NCHW",
+    "dtype": "float32",
+    "color": "RGB"
+  },
+  "output": {
+    "name": "score",
+    "shape": [
+      "batch",
+      1
+    ],
+    "scale": [
+      1,
+      5
+    ]
+  },
+  "limits": {
+    "total_wall_minutes": 60,
+    "cpu_threads": 4,
+    "parallel_training_jobs": 1,
+    "training_jobs": 2,
+    "paid_compute": 0,
+    "download_new_assets": false
+  },
+  "test_scope": "Previously observed SCUT official fold1 historical benchmark; not a new blind test and no identity-disjointness established.",
+  "test_targets_parsed_before_registration": false,
+  "feature_cache_reuse": "Existing R4 prefix cache only after model-prefix, input-content, manifest and cache-byte hashes verify."
+}

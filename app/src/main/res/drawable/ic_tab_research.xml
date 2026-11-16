@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- lucide "tab-research" v0.460.0 · ISC 许可 · https://lucide.dev
+     颜色留空（transparent 描边 + 由调用方 setTint），便于跟随主题状态色。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="21dp"
+    android:height="21dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M8.5 2h7"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:pathData="M7 16h10"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FF64748B"
+        android:strokeWidth="1.8"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+</vector>

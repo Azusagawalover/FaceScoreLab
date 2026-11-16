@@ -1,0 +1,160 @@
+{
+  "format": "visible-attributes-mnv3-v1",
+  "created_utc": "2026-11-13T12:43:13.244877+00:00",
+  "config": {
+    "format": "visible-attributes-mnv3-v1",
+    "labels": [
+      "Smiling",
+      "Eyeglasses",
+      "Mouth_Slightly_Open"
+    ],
+    "seed": 42,
+    "batch_size": 64,
+    "head_epochs": 50,
+    "head_patience": 8,
+    "tail_epochs": 8,
+    "tail_patience": 3,
+    "head_lr": 0.0008,
+    "tail_head_lr": 0.0001,
+    "tail_backbone_lr": 2.5e-05,
+    "weight_decay": 0.01,
+    "min_f1_improvement": 0.0001,
+    "pos_weight": true,
+    "threshold_grid": [
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.225,
+      0.25,
+      0.275,
+      0.3,
+      0.325,
+      0.35,
+      0.375,
+      0.4,
+      0.425,
+      0.45,
+      0.475,
+      0.5,
+      0.525,
+      0.55,
+      0.575,
+      0.6,
+      0.625,
+      0.65,
+      0.675,
+      0.7,
+      0.725,
+      0.75,
+      0.775,
+      0.8,
+      0.825,
+      0.85,
+      0.875,
+      0.9,
+      0.925,
+      0.95
+    ],
+    "smoke": false,
+    "selection": "validation_macro_f1_with_validation_only_per_label_thresholds"
+  },
+  "fingerprint": "5af1772d2cbcf5364d40235421312c1ec6e7e57202f0f5e665c595e01bf764c2",
+  "prepared": "D:\\chatgpt\\2026-11-13\\FaceScoreLab-optimization-run\\visible-attributes\\prepared-dev",
+  "prepared_manifest_sha256": "ff2539dc640d1540e6d1ce8e9b71242705f69b3c7638c8296010444f4a2102f2",
+  "preprocessing": {
+    "version": "mediapipe-largest-face-facecrop-v1-rgb224",
+    "face_task_sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "num_faces": 3,
+    "min_face_detection_confidence": 0.5,
+    "min_face_presence_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "face_selection": "largest landmark bounding-box area; first on ties",
+    "crop": "faceCrop v1: box max edge *1.45, center_y minus .06*size, clipped to image bounds",
+    "crop_implementation_sha256": "8205571ffe7e2e36511b27ff7e40fc4f104509f2fb2432660f38b3afd120a256",
+    "resize": "224x224 bilinear",
+    "color": "RGB",
+    "dtype": "float32",
+    "layout": "NCHW contiguous",
+    "pixel_scale": "divide by 255",
+    "mean": [
+      0.48500001430511475,
+      0.4560000002384186,
+      0.4059999883174896
+    ],
+    "std": [
+      0.2290000021457672,
+      0.2240000069141388,
+      0.22499999403953552
+    ]
+  },
+  "training_class_counts": [
+    {
+      "label": "Smiling",
+      "known": 19883,
+      "positive": 9578,
+      "negative": 10305,
+      "unknown": 0
+    },
+    {
+      "label": "Eyeglasses",
+      "known": 19883,
+      "positive": 1211,
+      "negative": 18672,
+      "unknown": 0
+    },
+    {
+      "label": "Mouth_Slightly_Open",
+      "known": 19883,
+      "positive": 9569,
+      "negative": 10314,
+      "unknown": 0
+    }
+  ],
+  "validation_class_counts": [
+    {
+      "label": "Smiling",
+      "known": 1988,
+      "positive": 971,
+      "negative": 1017,
+      "unknown": 0
+    },
+    {
+      "label": "Eyeglasses",
+      "known": 1988,
+      "positive": 138,
+      "negative": 1850,
+      "unknown": 0
+    },
+    {
+      "label": "Mouth_Slightly_Open",
+      "known": 1988,
+      "positive": 915,
+      "negative": 1073,
+      "unknown": 0
+    }
+  ],
+  "positive_weights": [
+    1.075903058052063,
+    15.418662071228027,
+    1.0778555870056152
+  ],
+  "dataset_total_counts": {
+    "train": 20000,
+    "validation": 2000
+  },
+  "dataset_detected_counts": {
+    "train": 19883,
+    "validation": 1988
+  },
+  "initialization": "torchvision ImageNet1K V1 only; no CelebA attribute classification checkpoint",
+  "test_targets_opened": false,
+  "preparation_charged_seconds": 484.5,
+  "source_sha256": {
+    "runner.py": "efa74c65f6fc7be4577556396dbbebf7a1081228e06e95b71730f6acb35ac6f4",
+    "common.py": "4dad639f4d1a4b85cd8c507b6cd386829e82cc0a76195bb2cd0999ed1895ece6"
+  }
+}

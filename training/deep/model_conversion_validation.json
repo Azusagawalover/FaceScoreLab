@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-06",
+  "cnn": {
+    "source": "https://huggingface.co/evanlyhf/scut-fbp5500-beauty",
+    "source_sha256": "54f55b2d03fe68b9bdb992d4992ea7d245b4dd25e0d376dca8f599463ff4a312",
+    "architecture": "timm ResNet50, image regression",
+    "training_by": "third-party author; SCUT-FBP5500",
+    "native_scale": [
+      1,
+      5
+    ],
+    "display_scale": [
+      1,
+      10
+    ],
+    "display_mapping": "1 + 9 * (clip(raw,1,5)-1) / 4",
+    "independent_end_to_end_accuracy_evaluated": false
+  },
+  "segmentation": {
+    "source": "https://github.com/yakhyo/face-parsing",
+    "download_mirror": "https://huggingface.co/PayamFard123/dermaintel-face-parsing",
+    "source_sha256": "0d9bd318e46987c3bdbfacae9e2c0f461cae1c6ac6ea6d43bbe541a91727e33f",
+    "architecture": "BiSeNet ResNet18, CelebAMask-HQ, 19 labels",
+    "ground_truth_segmentation_accuracy_evaluated": false
+  },
+  "storage": "Large FP32 initializers stored in FP16 and restored with Cast for CPU FP32 operators. This is not a claim of FP16 computation.",
+  "converted_initializers": {
+    "cnn": 107,
+    "segmentation": 67
+  },
+  "checks": [
+    {
+      "image": "girl.jpg",
+      "torch_native_score": 3.726365089416504,
+      "onnx_full_score": 3.7263622283935547,
+      "android_model_native_score": 3.72234845161438,
+      "torch_onnx_absolute_difference": 2.86102294921875e-06,
+      "compact_score_difference": 0.004013776779174805,
+      "segmentation_pixel_agreement": 0.9999580383300781,
+      "predicted_classes": [
+        0,
+        1,
+        2,
+        4,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17
+      ]
+    },
+    {
+      "image": "guy.jpg",
+      "torch_native_score": 4.484138011932373,
+      "onnx_full_score": 4.484135150909424,
+      "android_model_native_score": 4.497495174407959,
+      "torch_onnx_absolute_difference": 2.86102294921875e-06,
+      "compact_score_difference": 0.013360023498535156,
+      "segmentation_pixel_agreement": 0.9999580383300781,
+      "predicted_classes": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7,
+        8,
+        10,
+        12,
+        13,
+        14,
+        17
+      ]
+    }
+  ],
+  "assets": {
+    "beauty_resnet50.onnx": {
+      "bytes": 47002480,
+      "sha256": "5eab1379527c4950df6989ee8d42a5871ebd079b5d927b551d7ad724c450a4f8"
+    },
+    "face_parsing_mask.onnx": {
+      "bytes": 26624109,
+      "sha256": "413079d905d1f0b690287c47beeabb80c55bf60804c462dd44d8bca7ee048b85"
+    }
+  }
+}

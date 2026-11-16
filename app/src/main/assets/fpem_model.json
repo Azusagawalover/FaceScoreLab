@@ -1,0 +1,55 @@
+{
+  "source": "https://github.com/Estella-LH/FPEM",
+  "checkpoint": "pretrained/fpem_srcc_0.9243.pth",
+  "checkpoint_sha256": "5e18fb2a807366bd1f4bf8498493437059c60d4862a2f5b54ab664cc92af9615",
+  "strict_state_dict_load": true,
+  "source_changes": [
+    "CPU device selection in Clips.py; checkpoint-supplied CLIP initialization avoids downloading duplicate weights"
+  ],
+  "inference_optimization": [
+    "Fixed five prompt text features precomputed from the same checkpoint",
+    "Unconsumed training heads removed by ONNX export",
+    "FP16 weight storage with FP32 CPU operators"
+  ],
+  "input_preprocessing": "RGB 0-1, aspect-preserving bilinear resize and right/bottom zero padding at 224/112/160, matching upstream public_fpem dataloader",
+  "native_scale": [
+    1,
+    5
+  ],
+  "checks": [
+    {
+      "image": "girl.jpg",
+      "official_cpu_score": 2.955784559249878,
+      "portable_torch_score": 2.9557852745056152,
+      "difference": 7.152557373046875e-07,
+      "android_onnx_score": 2.955857276916504,
+      "onnx_absolute_difference": 7.271766662597656e-05,
+      "distribution": [
+        0.0448150634765625,
+        0.1876564919948578,
+        0.5850772261619568,
+        0.13175837695598602,
+        0.05069282278418541
+      ]
+    },
+    {
+      "image": "guy.jpg",
+      "official_cpu_score": 3.0920212268829346,
+      "portable_torch_score": 3.0920214653015137,
+      "difference": 2.384185791015625e-07,
+      "android_onnx_score": 3.091888904571533,
+      "onnx_absolute_difference": 0.0001323223114013672,
+      "distribution": [
+        0.06634629517793655,
+        0.20101362466812134,
+        0.42962563037872314,
+        0.1804335117340088,
+        0.12258093059062958
+      ]
+    }
+  ],
+  "asset_bytes": 288994459,
+  "asset_sha256": "e19189026ffde139b9966ddb5c99d67872ca54680cc6b889df9df5d6cecad671",
+  "benchmark_reproduced": false,
+  "accuracy_note": "Official checkpoint inference port and numerical checks only; no reproduction of LiveBeauty benchmark metrics or training is claimed."
+}

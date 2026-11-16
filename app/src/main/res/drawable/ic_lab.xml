@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 48dp 面部网格图标。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- 底板：圆角方形，对角渐变 -->
+    <path android:pathData="M12,0L36,0Q48,0 48,12L48,36Q48,48 36,48L12,48Q0,48 0,36L0,12Q0,0 12,0Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="2" android:startY="0"
+                android:endX="44" android:endY="48">
+                <item android:offset="0" android:color="#FF2B4C6F" />
+                <item android:offset="1" android:color="#FF0C1F33" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 面部轮廓 -->
+    <path
+        android:pathData="M24,9.6C17.4,9.6 13.4,14.6 13.4,21.6C13.4,28.4 17.6,34 24,34C30.4,34 34.6,28.4 34.6,21.6C34.6,14.6 30.6,9.6 24,9.6Z"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeAlpha="0.92"
+        android:strokeWidth="1.8" />
+
+    <!-- 网格连线：眉—颊—下巴构成的三角网格 -->
+    <path
+        android:pathData="M18.2,19.4L24,25.2L29.8,19.4M24,25.2L24,31.6M18.2,19.4L29.8,19.4"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeAlpha="0.55"
+        android:strokeWidth="1" />
+
+    <!-- 关键点 -->
+    <path
+        android:pathData="M19.6,19.4a1.45,1.45 0,1 1,-2.9 0a1.45,1.45 0,1 1,2.9 0"
+        android:fillColor="#FFFFFFFF" />
+    <path
+        android:pathData="M31.3,19.4a1.45,1.45 0,1 1,-2.9 0a1.45,1.45 0,1 1,2.9 0"
+        android:fillColor="#FFFFFFFF" />
+    <path
+        android:pathData="M25.45,25.2a1.45,1.45 0,1 1,-2.9 0a1.45,1.45 0,1 1,2.9 0"
+        android:fillColor="#FFE4703F" />
+    <path
+        android:pathData="M25.2,31.6a1.2,1.2 0,1 1,-2.4 0a1.2,1.2 0,1 1,2.4 0"
+        android:fillColor="#FFFFFFFF" />
+</vector>

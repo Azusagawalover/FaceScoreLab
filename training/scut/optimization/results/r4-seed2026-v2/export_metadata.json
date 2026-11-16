@@ -1,0 +1,134 @@
+{
+  "format": "facescore-optimization-v1",
+  "created_utc": "2026-11-13T12:14:42.481905+00:00",
+  "checkpoint_sha256": "e9d28d7ec0c0c2337761efb6e74a8ffcf7188f887a44a614b19ac14e3b79818b",
+  "onnx_sha256": "f3c3d89e0ab57c4e69327674bbdc9e29fa0793c662cf98026893842e909197e4",
+  "onnx_bytes": 4018418,
+  "parity": [
+    {
+      "name": "AF1004.jpg",
+      "pytorch": 3.6048169136047363,
+      "onnx": 3.604818820953369,
+      "absolute_difference": 1.9073486328125e-06
+    },
+    {
+      "name": "AF101.jpg",
+      "pytorch": 2.5257344245910645,
+      "onnx": 2.5257351398468018,
+      "absolute_difference": 7.152557373046875e-07
+    },
+    {
+      "name": "AF1014.jpg",
+      "pytorch": 3.9694418907165527,
+      "onnx": 3.9694466590881348,
+      "absolute_difference": 4.76837158203125e-06
+    },
+    {
+      "name": "AF1024.jpg",
+      "pytorch": 3.5234789848327637,
+      "onnx": 3.5234830379486084,
+      "absolute_difference": 4.0531158447265625e-06
+    },
+    {
+      "name": "AF1026.jpg",
+      "pytorch": 2.934663772583008,
+      "onnx": 2.9346625804901123,
+      "absolute_difference": 1.1920928955078125e-06
+    },
+    {
+      "name": "AF1027.jpg",
+      "pytorch": 4.029082298278809,
+      "onnx": 4.029085159301758,
+      "absolute_difference": 2.86102294921875e-06
+    },
+    {
+      "name": "AF1041.jpg",
+      "pytorch": 2.1456644535064697,
+      "onnx": 2.1456642150878906,
+      "absolute_difference": 2.384185791015625e-07
+    },
+    {
+      "name": "AF1044.jpg",
+      "pytorch": 2.3527872562408447,
+      "onnx": 2.3527867794036865,
+      "absolute_difference": 4.76837158203125e-07
+    },
+    {
+      "name": "AF1061.jpg",
+      "pytorch": 2.9486019611358643,
+      "onnx": 2.9486021995544434,
+      "absolute_difference": 2.384185791015625e-07
+    },
+    {
+      "name": "AF1067.jpg",
+      "pytorch": 2.517153024673462,
+      "onnx": 2.517153024673462,
+      "absolute_difference": 0.0
+    },
+    {
+      "name": "AF1081.jpg",
+      "pytorch": 3.485159397125244,
+      "onnx": 3.485161066055298,
+      "absolute_difference": 1.6689300537109375e-06
+    },
+    {
+      "name": "AF1083.jpg",
+      "pytorch": 4.051949501037598,
+      "onnx": 4.051953315734863,
+      "absolute_difference": 3.814697265625e-06
+    },
+    {
+      "name": "AF1091.jpg",
+      "pytorch": 2.737046241760254,
+      "onnx": 2.737046957015991,
+      "absolute_difference": 7.152557373046875e-07
+    },
+    {
+      "name": "AF1107.jpg",
+      "pytorch": 3.3382625579833984,
+      "onnx": 3.3382604122161865,
+      "absolute_difference": 2.1457672119140625e-06
+    },
+    {
+      "name": "AF1110.jpg",
+      "pytorch": 3.6977357864379883,
+      "onnx": 3.697732448577881,
+      "absolute_difference": 3.337860107421875e-06
+    },
+    {
+      "name": "AF1118.jpg",
+      "pytorch": 2.243852138519287,
+      "onnx": 2.2438533306121826,
+      "absolute_difference": 1.1920928955078125e-06
+    },
+    {
+      "name": "AF1129.jpg",
+      "pytorch": 3.777655839920044,
+      "onnx": 3.7776572704315186,
+      "absolute_difference": 1.430511474609375e-06
+    },
+    {
+      "name": "AF1133.jpg",
+      "pytorch": 3.167116641998291,
+      "onnx": 3.167120933532715,
+      "absolute_difference": 4.291534423828125e-06
+    },
+    {
+      "name": "AF1143.jpg",
+      "pytorch": 2.126504421234131,
+      "onnx": 2.1265101432800293,
+      "absolute_difference": 5.7220458984375e-06
+    },
+    {
+      "name": "AF1153.jpg",
+      "pytorch": 2.8374204635620117,
+      "onnx": 2.8374223709106445,
+      "absolute_difference": 1.9073486328125e-06
+    }
+  ],
+  "maximum_absolute_difference": 5.7220458984375e-06,
+  "parity_sample_split": "validation",
+  "test_targets_opened": false,
+  "preprocessing": "legacy_facecrop_v1",
+  "smoke_not_for_release": false
+}

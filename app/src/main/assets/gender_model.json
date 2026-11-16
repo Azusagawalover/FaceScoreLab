@@ -1,0 +1,67 @@
+{
+  "format": "gender-classifier-mnv3-v1",
+  "model_file": "gender_classifier.onnx",
+  "model_sha256": "7aca5c24f6c324577e16b0d92ae61a8f407fcd7fe66b2babec7c41efd2a31fe7",
+  "input": {
+    "name": "input",
+    "shape": [
+      "N",
+      3,
+      224,
+      224
+    ],
+    "dtype": "float32",
+    "layout": "NCHW"
+  },
+  "output": {
+    "name": "logit",
+    "shape": [
+      "N",
+      1
+    ],
+    "activation": "logit + Platt calibration"
+  },
+  "labels": [
+    "female",
+    "male"
+  ],
+  "decision": "sigmoid(a*logit + b) >= threshold -> male else female",
+  "threshold": 0.6,
+  "threshold_fit_split": "validation",
+  "preprocessing": {
+    "version": "mediapipe-largest-face-facecrop-v1-rgb224",
+    "face_task_sha256": "64184e229b263107bc2b804c6625db1341ff2bb731874b0bcc2fe6544e0bc9ff",
+    "num_faces": 3,
+    "min_face_detection_confidence": 0.5,
+    "min_face_presence_confidence": 0.5,
+    "min_tracking_confidence": 0.5,
+    "face_selection": "largest landmark bounding-box area; first on ties",
+    "crop": "faceCrop v1: box max edge *1.45, center_y minus .06*size, clipped to image bounds",
+    "crop_implementation_sha256": "8205571ffe7e2e36511b27ff7e40fc4f104509f2fb2432660f38b3afd120a256",
+    "resize": "224x224 bilinear",
+    "color": "RGB",
+    "dtype": "float32",
+    "layout": "NCHW contiguous",
+    "pixel_scale": "divide by 255",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "score_type": "Platt-calibrated probability fitted on the validation split; still not a population-calibrated probability",
+  "no_face_behavior": "No output; report detection failure rather than guessing",
+  "usage_policy": "参考信息，不自动切换打分参照组；不用于对个人性别的判定或公开标注。",
+  "calibration": {
+    "method": "Platt scaling (1-D logistic regression)",
+    "a": 0.9155694626197927,
+    "b": -0.31950489935860277,
+    "fit_split": "validation",
+    "formula": "p = sigmoid(a*logit + b)"
+  }
+}
